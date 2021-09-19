@@ -29,13 +29,13 @@ export const addMember=(Member,Rfid)=>{
             })
 
 
-            const {data}= await axios.post('http://localhost:5000/admin/data/addmember',Member,{
+            const {data}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addmember',Member,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            const {rfid}= await axios.post('http://localhost:5000/admin/data/addrfid',Rfid,{
+            const {rfid}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addrfid',Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -67,8 +67,7 @@ export const memberList=(url)=>{
             dispatch({
                 type:MEMBER_LIST_REQUEST
             })
-            console.log('http://vikings-0.herokuapp.com'+url.toString())
-            const {data} = await axios.get(`http://localhost:5000${url.toString()}`,{
+            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -99,13 +98,13 @@ export const deleteMember=(id,rfid)=>{
                 type:DELETE_MEMBER_REQUEST
             })
 
-            await axios.delete(`http://localhost:5000/admin/data/deletemember/${id}`,{
+            await axios.delete(`https://vikings-0.herokuapp.com/admin/data/deletemember/${id}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            await axios.delete(`http://localhost:5000/admin/data/deleterfid/${rfid}`,{
+            await axios.delete(`https://vikings-0.herokuapp.com/admin/data/deleterfid/${rfid}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -134,7 +133,7 @@ export const getMember=(id)=>{
                 type:MEMBER_DETAILS_REQUEST
             })
 
-            const {data}=await axios.get(`http://localhost:5000/admin/memberprofile/${id}`,{
+            const {data}=await axios.get(`https://vikings-0.herokuapp.com/admin/memberprofile/${id}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -163,13 +162,13 @@ export const updateMember=(id,member,Rfid)=>{
                 type:UPDATE_MEMBER_REQUEST
             })
 
-            const {data}=await axios.patch(`http://localhost:5000/admin/updatemember/${id}`,member,{
+            const {data}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updatemember/${id}`,member,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            const {rfid}=await axios.patch(`http://localhost:5000/admin/updaterfid/${member.rfid}`,Rfid,{
+            const {rfid}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updaterfid/${member.rfid}`,Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -198,7 +197,7 @@ export const countMember=()=>{
                 type:MEMBER_COUNT_REQUEST
             })
 
-            const count=await axios.get('http://localhost:5000/admin/data/membercount',{
+            const count=await axios.get('https://vikings-0.herokuapp.com/admin/data/membercount',{
                 headers:{
                     'Content-Type': 'application/json'
                 }
