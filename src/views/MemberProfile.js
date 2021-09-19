@@ -120,6 +120,7 @@ const MemberProfile=({match,history})=> {
             setGroup(group===null?member.group:group)
             setTraining(training===null?member.training:training)
             setMembership(membership===null?member.membership:membership)
+            setDiscount(discount===null?member.discount:discount)
             if ((gender||member.gender) === "male") {
                 if ((membership||member.membership) === 'Weight Training') {
                     amount = 2000
