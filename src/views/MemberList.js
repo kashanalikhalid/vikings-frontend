@@ -102,7 +102,7 @@ const MemberList=({history, location})=>{
                 {
                     members===undefined? '' : members.members.map(member =>{
                         let days=feeStatus(member.feeDate)
-                        if(days>(31*member.months))
+                        if(days>((31*member.months)-3))
                         {
                             return(
                             <div style={{backgroundColor: `transparent` , "&:hover": {backgroundColor: `transparent`}}} key={member._id}  className='table-entry'>
