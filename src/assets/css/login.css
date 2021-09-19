@@ -1,0 +1,95 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.login-body{
+    height:100vh;
+    background-size: cover;
+}
+
+.login-container{
+    padding:10%;
+}
+
+.login_wrapper{
+    margin-top:5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+.login_wrapper--left
+{
+    background: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3ltfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    repeat:no-repeat;
+}
+
+.login_wrapper--right
+{
+background:white;
+    height:45vh;
+    z-index:2;
+}
+
+.login-label
+{
+    font-family: 'Muli';
+    font-size:14px;
+    font-weight:bold;
+}
+
+
+.login-submit
+{
+    border:none !important;
+    font-family:"muli";
+    color:white !important;
+    width:94%;
+    background-color:#e3b04b !important;
+    margin-top:20px;
+
+}
+
+
+.login-submit:hover
+{
+
+    background-color:black !important;
+    margin-top:18px;
+    transition:all 0.5s;
+
+}
+
+.login-h3{
+    font-family:"muli"
+}
+
+.login-input:focus {
+    border-bottom: 1px solid #e3b04b !important;
+    transition: all 0.5s;
+}
+
+.login-input{
+    border:none !important;
+}
+
+.login-warning
+{
+    color:red;
+    font-size:12px;
+    font-family:"muli";
+    position:absolute;
+    transition: visibility 0s, opacity 0.5s linear, margin 0.3s linear;
+}
+
+canvas{
+    position:absolute !important;
+    top:0;
+    z-index:-1 !important;
+    background-image: url("../img/login-bg.jpg") !important;
+    width:100vw;
+
+}

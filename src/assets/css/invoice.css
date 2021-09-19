@@ -1,0 +1,88 @@
+.invoice__container{
+    max-width: 405px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+
+}
+
+.invoice__gymlogo{
+    width: 250px;
+}
+
+.invoice__address{
+    margin-top: 5px;
+    font-weight: 800;
+    font-size: 15px;
+    text-align: center;
+}
+
+.invoice__number{
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}
+
+.invoice__table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+
+}
+
+.invoice__tablerowh{
+    background-color: black;
+    height: 20px;
+}
+.invoice__tablerow{
+    border-bottom: 1px solid black;
+    height: 20px;
+}
+
+.invoice__tableheader{
+    text-align: start;
+    font-size: 20px;
+    color: white;
+}
+
+.invoice__tabledirectory{
+    text-align: start;
+    font-size: 15px;
+    color: black;
+    padding-top: 10px;
+    font-weight: 800;
+}
+
+.invoice__date{
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.invoice__notice{
+    font-size: 13px;
+    margin-top: 8px;
+    font-weight: 800;
+}
+
+.invoice__app{
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 30px;
+}
+.invoice__footer{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    align-items: center;
+}
+.invoice__applogo{
+    margin-top: 2px;
+    width: 150px;
+}
+
+.invoice__appnumber{
+    font-size: 12px;
+    font-weight: bold;
+}
