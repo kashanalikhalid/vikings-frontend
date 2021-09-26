@@ -29,13 +29,13 @@ export const addMember=(Member,Rfid)=>{
             })
 
 
-            const {data}= await axios.post('http://localhost:5000/admin/data/addmember',Member,{
+            const {data}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addmember',Member,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            const {rfid}= await axios.post('http://localhost:5000/admin/data/addrfid',Rfid,{
+            const {rfid}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addrfid',Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
