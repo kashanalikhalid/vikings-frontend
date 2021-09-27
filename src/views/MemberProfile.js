@@ -123,14 +123,14 @@ const MemberProfile=({match,history})=> {
             setMembership(membership===null?member.membership:membership)
             if ((gender||member.gender) === "male") {
                 if ((membership||member.membership) === 'Weight Training') {
-                    amount = 2000
+                    amount = 1500
                 }
                 else if(membership==='Cardio')
                 {
                     amount=2000
                 }else {
 
-                    amount = 4000
+                    amount = 3500
                 }
                 trainingcost = 6000
             } else {

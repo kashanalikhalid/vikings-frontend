@@ -107,14 +107,14 @@ const AddMember=({match,history})=> {
         {
             if(membership==='Weight Training')
             {
-                amount=2000
+                amount=1500
             }
             else if(membership==='Cardio')
             {
                 amount=2000
             }
             else {
-                amount=4000
+                amount=3500
             }
          trainingcost=6000
         }
