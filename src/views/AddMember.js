@@ -344,7 +344,7 @@ const AddMember=({match,history})=> {
                                                 <label>RFID</label>
                                                 <Form.Control
                                                     placeholder="RFID"
-                                                    type="number"
+                                                    type="string"
                                                     value={rfid}
                                                     onChange={(e)=>{setRfid(e.target.value) ;handleRFID()}}
                                                     onFocus={handleRFID}
