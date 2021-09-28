@@ -189,6 +189,7 @@ const MemberProfile=({match,history})=> {
                 amount = amount + trainingcost;
             }
         }
+        discount=0;
 
         const checkDiscount=(discount/100)*amount
         setDiscountAmount(checkDiscount)
