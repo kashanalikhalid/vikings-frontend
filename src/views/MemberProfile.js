@@ -75,7 +75,7 @@ const MemberProfile=({match,history})=> {
         const rfidData={
             rfid
         }
-        dispatch(updateMember(member._id,data,rfidData))
+        dispatch(updateMember(member._id,data,rfidData,member.rfid))
     }
 
     const receipt=()=>{
@@ -195,7 +195,6 @@ const MemberProfile=({match,history})=> {
         setDiscountAmount(checkDiscount)
         setFee(amount-checkDiscount)
         setDiscount(discount)
-        console.log(training)
     }
 
 

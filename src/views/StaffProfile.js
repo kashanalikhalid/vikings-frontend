@@ -56,7 +56,7 @@ const StaffProfile=({match})=> {
         const rfidData={
             rfid
         }
-        dispatch(updateStaff(staff._id,data,rfidData))
+        dispatch(updateStaff(staff._id,data,rfidData,staff.rfid))
     }
 
     useEffect(()=>{
@@ -195,7 +195,7 @@ const StaffProfile=({match})=> {
                                                         <label>RFID</label>
                                                         <Form.Control
                                                             placeholder="RFID"
-                                                            type="number"
+                                                            type="string"
                                                             value={rfid===null?staff.rfid:rfid}
                                                             onChange={(e) => {
                                                                 setRfid(e.target.value);
