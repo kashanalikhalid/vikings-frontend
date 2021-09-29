@@ -161,6 +161,7 @@ export const updateMember=(id,member,Rfid,updateRfid)=>{
             dispatch({
                 type:UPDATE_MEMBER_REQUEST
             })
+            console.log("hi")
 
             const {data}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updatemember/${id}`,member,{
                 headers:{
@@ -168,7 +169,8 @@ export const updateMember=(id,member,Rfid,updateRfid)=>{
                 }
             })
 
-            const {rfid}=await axios.patch(`http://localhost:5000/admin/updaterfid/${updateRfid}`,Rfid,{
+
+            const {rfid}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updaterfid/${updateRfid}`,Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }

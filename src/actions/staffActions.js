@@ -163,7 +163,7 @@ export const updateStaff=(id,staff,Rfid,updateRfid)=>{
                 }
             })
 
-            const {rfid}=await axios.patch(`http://localhost:5000/admin/updaterfid/${updateRfid}`,Rfid,{
+            const {rfid}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updaterfid/${updateRfid}`,Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
