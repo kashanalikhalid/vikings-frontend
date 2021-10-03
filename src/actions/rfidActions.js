@@ -25,19 +25,6 @@ export const verifyRfid=(rfid)=>{
                 }
             })
 
-            const member= {date:`${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`,
-                name:data.data.name,
-                reg:data.data._id,
-                rfid:data.data.rfid,
-                time:moment().format('LLLL')
-
-            }
-
-            const attendance=axios.post(`http://localhost:5000/admin/attendance`,member,{
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            })
             if(data.data.allowed==true)
             {
                 await axios.get(`http://localhost:5000/off`,{
@@ -52,6 +39,21 @@ export const verifyRfid=(rfid)=>{
                     }
                 })
             }
+
+            const member= {date:`${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`,
+                name:data.data.name,
+                reg:data.data._id,
+                rfid:data.data.rfid,
+                time:moment().format('LLLL')
+
+            }
+
+            const attendance=axios.post(`http://localhost:5000/admin/attendance`,member,{
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
 
             dispatch({
                 type:VERIFY_RFID_SUCCESS,

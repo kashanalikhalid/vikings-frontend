@@ -130,7 +130,7 @@ const MemberProfile=({match,history})=> {
                     amount=2000
                 }else {
 
-                    amount = 3500
+                    amount = 3000
                 }
                 trainingcost = 6000
             } else {
@@ -165,7 +165,7 @@ const MemberProfile=({match,history})=> {
                     amount=2000
                 }else {
 
-                    amount = 3500
+                    amount = 3000
                 }
                 trainingcost = 6000
             } else {

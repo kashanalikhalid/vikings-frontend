@@ -114,7 +114,7 @@ const AddMember=({match,history})=> {
                 amount=2000
             }
             else {
-                amount=3500
+                amount=3000
             }
          trainingcost=6000
         }
