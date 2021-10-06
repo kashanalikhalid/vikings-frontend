@@ -87,16 +87,16 @@ function Sidebar({ color, image, routes }) {
             </li>
 
 
-            {/*<li*/}
-            {/*    className={*/}
-            {/*        activeRoute('/admin/verification')*/}
-            {/*    }*/}
-            {/*>*/}
-            {/*    <NavLink to='/admin/verification'   className="nav-link">*/}
-            {/*        <span> <i className='nc-icon nc-cctv' /> <p>Verification</p> </span>*/}
-            {/*    </NavLink>*/}
+            <li
+                className={
+                    activeRoute('/admin/verification')
+                }
+            >
+                <NavLink to='/admin/verification'   className="nav-link">
+                    <span> <i className='nc-icon nc-cctv' /> <p>Verification</p> </span>
+                </NavLink>
 
-            {/*</li>*/}
+            </li>
 
             <li
                 className={
