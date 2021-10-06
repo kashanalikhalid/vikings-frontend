@@ -123,7 +123,7 @@ const StaffList=({history, location})=>{
                                                     <Tooltip id="tooltip-829164576">Remove</Tooltip>
                                                 }
                                             >
-                                                <Button onClick={()=>{handleDelete(staff._id)}}  size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
+                                                <Button onClick={()=>{handleDelete(staff._id,staff.rfid)}}  size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
                                             </OverlayTrigger>
 
 
