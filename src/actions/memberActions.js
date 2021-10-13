@@ -16,7 +16,22 @@ import{
     MEMBER_DETAILS_FAIL,
     MEMBER_COUNT_REQUEST,
     MEMBER_COUNT_SUCCESS,
-    MEMBER_COUNT_FAIL
+    MEMBER_COUNT_FAIL,
+    MEMBER_TRAINING_REQUEST,
+    MEMBER_TRAINING_SUCCESS,
+    MEMBER_TRAINING_FAIL,
+    MEMBER_CARDIO_REQUEST,
+    MEMBER_CARDIO_SUCCESS,
+    MEMBER_CARDIO_FAIL,
+    MEMBER_WEIGHT_REQUEST,
+    MEMBER_WEIGHT_SUCCESS,
+    MEMBER_WEIGHT_FAIL,
+    MEMBER_CARDIOWEIGHT_REQUEST,
+    MEMBER_CARDIOWEIGHT_SUCCESS,
+    MEMBER_CARDIOWEIGHT_FAIL,
+    ALLMEMBERS_LIST_REQUEST,
+    ALLMEMBERS_LIST_SUCCESS,
+    ALLMEMBERS_LIST_FAIL
 } from '../constants/memberConstants'
 import axios from 'axios'
 import mongoose from "mongoose";
@@ -61,20 +76,56 @@ export const addMember=(Member,Rfid)=>{
     }
 }
 
+export const allMembers=()=>{
+    return async(dispatch)=>{
+        try {
+            dispatch({
+                type:ALLMEMBERS_LIST_REQUEST
+            })
+
+
+
+
+                let {data} = await axios.get(`https://vikings-0.herokuapp.com/admin/allmembers`,{
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                })
+
+
+
+
+
+            dispatch({
+                type:ALLMEMBERS_LIST_SUCCESS,
+                payload:data
+            })
+        }
+        catch (error) {
+            dispatch({
+                type:ALLMEMBERS_LIST_FAIL,
+                payload:error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            })
+        }
+    }
+}
+
+
+
 export const memberList=(url)=>{
     return async(dispatch)=>{
         try {
             dispatch({
                 type:MEMBER_LIST_REQUEST
             })
-            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+
+            let {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
-
-
-
             dispatch({
                 type:MEMBER_LIST_SUCCESS,
                 payload:data
@@ -91,6 +142,128 @@ export const memberList=(url)=>{
     }
 }
 
+export const trainingList=(url)=>{
+    return async(dispatch)=>{
+        try {
+            dispatch({
+                type:MEMBER_TRAINING_REQUEST
+            })
+            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+
+
+            dispatch({
+                type:MEMBER_TRAINING_SUCCESS,
+                payload:data
+            })
+        }
+        catch (error) {
+            dispatch({
+                type:MEMBER_TRAINING_FAIL,
+                payload:error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            })
+        }
+    }
+}
+
+
+
+export const cardioList=(url)=>{
+    return async(dispatch)=>{
+        try {
+            dispatch({
+                type:MEMBER_CARDIO_REQUEST
+            })
+            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+
+
+            dispatch({
+                type:MEMBER_CARDIO_SUCCESS,
+                payload:data
+            })
+        }
+        catch (error) {
+            dispatch({
+                type:MEMBER_CARDIO_FAIL,
+                payload:error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            })
+        }
+    }
+}
+
+
+export const weightList=(url)=>{
+    return async(dispatch)=>{
+        try {
+            dispatch({
+                type:MEMBER_WEIGHT_REQUEST
+            })
+            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+
+
+            dispatch({
+                type:MEMBER_WEIGHT_SUCCESS,
+                payload:data
+            })
+        }
+        catch (error) {
+            dispatch({
+                type:MEMBER_WEIGHT_FAIL,
+                payload:error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            })
+        }
+    }
+}
+
+export const cardioWeightList=(url)=>{
+    return async(dispatch)=>{
+        try {
+            dispatch({
+                type:MEMBER_CARDIOWEIGHT_REQUEST
+            })
+            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+
+
+            dispatch({
+                type:MEMBER_CARDIOWEIGHT_SUCCESS,
+                payload:data
+            })
+        }
+        catch (error) {
+            dispatch({
+                type:MEMBER_CARDIOWEIGHT_FAIL,
+                payload:error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            })
+        }
+    }
+}
 export const deleteMember=(id,rfid)=>{
     return async (dispatch)=>{
         try{
@@ -199,7 +372,7 @@ export const countMember=()=>{
                 type:MEMBER_COUNT_REQUEST
             })
 
-            const count=await axios.get('https://vikings-0.herokuapp.com/admin/data/membercount',{
+            const count=await axios.get('https://vikings-0.herokuapp.com/admin/membercount',{
                 headers:{
                     'Content-Type': 'application/json'
                 }

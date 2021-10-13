@@ -48,7 +48,7 @@ export const verifyRfid=(rfid)=>{
 
             }
 
-            const attendance=axios.post(`http://localhost:5000/admin/attendance`,member,{
+            const attendance=axios.post(`https://vikings-0.herokuapp.com/admin/attendance`,member,{
                 headers:{
                     'Content-Type': 'application/json'
                 }

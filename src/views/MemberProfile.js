@@ -125,7 +125,7 @@ const MemberProfile=({match,history})=> {
                 if ((membership||member.membership) === 'Weight Training') {
                     amount = 1500
                 }
-                else if(membership==='Cardio')
+                else if((membership||member.membership)==='Cardio')
                 {
                     amount=2000
                 }else {
@@ -160,7 +160,7 @@ const MemberProfile=({match,history})=> {
                 if ((membership||member.membership) === 'Weight Training') {
                     amount = 1500
                 }
-                else if(membership==='Cardio')
+                else if((membership||member.membership)==='Cardio')
                 {
                     amount=2000
                 }else {

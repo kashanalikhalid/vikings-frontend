@@ -24,6 +24,11 @@ import StaffList from "./views/StaffList";
 import MemberProfile from "./views/MemberProfile";
 import Verify from "./views/verify";
 import AttendanceList from "./views/attendanceList";
+import TrainingList from "./views/TrainingList";
+import WeightList from "./views/WeightList";
+import CardioList from "./views/CardioList";
+import CardioWeightList from "./views/CardioWeight";
+
 const dashboardRoutes = [
 
   {
@@ -36,6 +41,26 @@ const dashboardRoutes = [
   {
     path: "/members",
     component: MemberList,
+    layout: "/admin",
+  },
+  {
+    path: "/weight",
+    component: WeightList,
+    layout: "/admin",
+  },
+  {
+    path: "/training",
+    component: TrainingList,
+    layout: "/admin",
+  },
+  {
+    path: "/cardio",
+    component: CardioList,
+    layout: "/admin",
+  },
+  {
+    path: "/strengthcardio",
+    component: CardioWeightList,
     layout: "/admin",
   },
   {

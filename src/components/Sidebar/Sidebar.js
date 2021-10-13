@@ -41,15 +41,15 @@ function Sidebar({ color, image, routes }) {
         </div>
         <Nav>
 
-          {/*<li*/}
-          {/*    className={*/}
-          {/*      activeRoute('/admin/dashboard')*/}
-          {/*    }*/}
-          {/*>*/}
-          {/*  <NavLink   className="nav-link" to={'/admin/dashboard'}>*/}
-          {/*      <span> <i className='nc-icon nc-chart-pie-35' /> <p>Dashboard </p> </span>*/}
-          {/*  </NavLink>*/}
-          {/*</li>*/}
+          <li
+              className={
+                activeRoute('/admin/dashboard')
+              }
+          >
+            <NavLink   className="nav-link" to={'/admin/dashboard'}>
+                <span> <i className='nc-icon nc-chart-pie-35' /> <p>Dashboard </p> </span>
+            </NavLink>
+          </li>
 
             <li
                 className={
@@ -58,6 +58,50 @@ function Sidebar({ color, image, routes }) {
             >
                 <NavLink to='/admin/members'   className="nav-link">
                     <span> <i className='nc-icon nc-single-02' /> <p>Members</p> </span>
+                </NavLink>
+
+            </li>
+
+            <li
+                className={
+                    activeRoute('/admin/training')
+                }
+            >
+                <NavLink to='/admin/training'   className="nav-link">
+                    <span> <i className='nc-icon nc-single-02' /> <p>Training</p> </span>
+                </NavLink>
+
+            </li>
+
+            <li
+                className={
+                    activeRoute('/admin/weight')
+                }
+            >
+                <NavLink to='/admin/weight'   className="nav-link">
+                    <span> <i className='nc-icon nc-single-02' /> <p>Strength</p> </span>
+                </NavLink>
+
+            </li>
+
+            <li
+                className={
+                    activeRoute('/admin/cardio')
+                }
+            >
+                <NavLink to='/admin/cardio'   className="nav-link">
+                    <span> <i className='nc-icon nc-single-02' /> <p>Cardio</p> </span>
+                </NavLink>
+
+            </li>
+
+            <li
+                className={
+                    activeRoute('/admin/strengthcardio')
+                }
+            >
+                <NavLink to='/admin/strengthcardio'   className="nav-link">
+                    <span> <i className='nc-icon nc-single-02' /> <p>Cardio and Strength</p> </span>
                 </NavLink>
 
             </li>
@@ -87,16 +131,16 @@ function Sidebar({ color, image, routes }) {
             </li>
 
 
-            {/*<li*/}
-            {/*    className={*/}
-            {/*        activeRoute('/admin/verification')*/}
-            {/*    }*/}
-            {/*>*/}
-            {/*    <NavLink to='/admin/verification'   className="nav-link">*/}
-            {/*        <span> <i className='nc-icon nc-cctv' /> <p>Verification</p> </span>*/}
-            {/*    </NavLink>*/}
+            <li
+                className={
+                    activeRoute('/admin/verification')
+                }
+            >
+                <NavLink to='/admin/verification'   className="nav-link">
+                    <span> <i className='nc-icon nc-cctv' /> <p>Verification</p> </span>
+                </NavLink>
 
-            {/*</li>*/}
+            </li>
 
             <li
                 className={

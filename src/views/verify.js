@@ -89,7 +89,7 @@ const Verify = ({navigation}) => {
                                  height:'20vh',
                                  color:'white'
                              }} sm={12}>
-                    <h1>Rfid mot found!</h1>
+                    <h1>Rfid not found!</h1>
                 </Col>:''}
                 {result? <Container>
                     {
@@ -117,7 +117,7 @@ const Verify = ({navigation}) => {
 
 
                                 <Row>
-                                    {result.data.allowed===true?'':<div><h2>Suspicious member card scanned!</h2> <h2>result.data.reason</h2></div>
+                                    {result.data.allowed===true?'':<div><h2>Suspicious member card scanned!</h2> <h2>{result.data.reason}</h2></div>
                                     }
                                 </Row>
                                 <Row className="d-flex">

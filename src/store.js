@@ -17,6 +17,11 @@ import {
     updateMemberReducer,
     memberCountReducer,
     printReceiptReducer,
+    memberTrainingReducer,
+    memberWeightReducer,
+    memberCardioReducer,
+    memberCardioWeightReducer,
+    allMembersListReducer
 } from "./reducers/memberReducer";
 
 import {
@@ -43,11 +48,16 @@ const reducer= combineReducers({
 
     addedMember:addMemberReducer,
     memberList:memberListReducer,
+    memberTraining:memberTrainingReducer,
+    memberCardio:memberCardioReducer,
+    memberWeight:memberWeightReducer,
+    memberCardioWeight:memberCardioWeightReducer,
     memberDelete:deleteMemberReducer,
     memberProfile:memberProfileReducer,
     updatedMember:updateMemberReducer,
     memberCount:memberCountReducer,
     receipt:printReceiptReducer,
+    allMembers:allMembersListReducer,
 
     verifyStatus:verifyRfidReducer,
     attendanceList:attendanceListReducer

@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import moment from 'moment'
 
 // react-bootstrap components
 import {
@@ -45,6 +46,18 @@ const AttendanceList = ({history,location}) => {
         }
     }
 
+    function formatDate(date) {
+        date=subtractTimeFromDate(date,5)
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
+    }
+
     const pageChangeHandler=(page)=>{
         setCurrentPage(page);
         if(search==='')
@@ -60,6 +73,14 @@ const AttendanceList = ({history,location}) => {
         let newDate=new Date(date)
         return `${newDate.getFullYear()}-${newDate.getMonth()+1}-${newDate.getDate()}`
 
+    }
+
+    function subtractTimeFromDate(objDate, intHours) {
+        var numberOfMlSeconds = objDate.getTime();
+        var addMlSeconds = (intHours * 60) * 60 * 1000;
+        var newDateObj = new Date(numberOfMlSeconds - addMlSeconds);
+
+        return newDateObj;
     }
 
 
@@ -98,8 +119,8 @@ const AttendanceList = ({history,location}) => {
                                         <Col  xs={6} md={6}>
                                             <p >
                                                 <span>{member.name} </span><br/>
-                                                <span>{member.time}</span>
-                                                <span>{member.date}</span>
+                                                {/*<span>{moment(new Date(member.time))}</span>*/}
+                                                <span>{formatDate(new Date(member.time))}</span>
                                             </p>
 
                                         </Col>

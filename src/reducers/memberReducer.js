@@ -16,7 +16,22 @@ import{
     MEMBER_DETAILS_FAIL,
     MEMBER_COUNT_REQUEST,
     MEMBER_COUNT_SUCCESS,
-    MEMBER_COUNT_FAIL
+    MEMBER_COUNT_FAIL,
+    MEMBER_TRAINING_REQUEST,
+    MEMBER_TRAINING_SUCCESS,
+    MEMBER_TRAINING_FAIL,
+    MEMBER_CARDIO_REQUEST,
+    MEMBER_CARDIO_SUCCESS,
+    MEMBER_CARDIO_FAIL,
+    MEMBER_WEIGHT_REQUEST,
+    MEMBER_WEIGHT_SUCCESS,
+    MEMBER_WEIGHT_FAIL,
+    MEMBER_CARDIOWEIGHT_REQUEST,
+    MEMBER_CARDIOWEIGHT_SUCCESS,
+    MEMBER_CARDIOWEIGHT_FAIL,
+    ALLMEMBERS_LIST_REQUEST,
+    ALLMEMBERS_LIST_SUCCESS,
+    ALLMEMBERS_LIST_FAIL
 } from '../constants/memberConstants'
 
 
@@ -48,6 +63,89 @@ export const memberListReducer=(state={},action)=>{
             return state
     }
 }
+
+
+export const allMembersListReducer=(state={},action)=>{
+    switch(action.type)
+    {
+        case ALLMEMBERS_LIST_REQUEST:
+            return {loading:true}
+        case ALLMEMBERS_LIST_SUCCESS:{
+            return {loading:false,members:action.payload}
+        }
+        case ALLMEMBERS_LIST_FAIL:{
+            return {loading:false, error:action.payload}
+        }
+        default:
+            return state
+    }
+}
+
+export const memberTrainingReducer=(state={},action)=>{
+    switch(action.type)
+    {
+        case MEMBER_TRAINING_REQUEST:
+            return {loading:true}
+        case MEMBER_TRAINING_SUCCESS:{
+            return {loading:false,members:action.payload}
+        }
+        case MEMBER_TRAINING_FAIL:{
+            return {loading:false, error:action.payload}
+        }
+        default:
+            return state
+    }
+}
+
+export const memberCardioReducer=(state={},action)=>{
+    switch(action.type)
+    {
+        case MEMBER_CARDIO_REQUEST:
+            return {loading:true}
+        case MEMBER_CARDIO_SUCCESS:{
+            return {loading:false,members:action.payload}
+        }
+        case MEMBER_CARDIO_FAIL:{
+            return {loading:false, error:action.payload}
+        }
+        default:
+            return state
+    }
+}
+
+export const memberWeightReducer=(state={},action)=>{
+    switch(action.type)
+    {
+        case MEMBER_WEIGHT_REQUEST:
+            return {loading:true}
+        case MEMBER_WEIGHT_SUCCESS:{
+            return {loading:false,members:action.payload}
+        }
+        case MEMBER_WEIGHT_FAIL:{
+            return {loading:false, error:action.payload}
+        }
+        default:
+            return state
+    }
+}
+
+export const memberCardioWeightReducer=(state={},action)=>{
+    switch(action.type)
+    {
+        case MEMBER_CARDIOWEIGHT_REQUEST:
+            return {loading:true}
+        case MEMBER_CARDIOWEIGHT_SUCCESS:{
+            return {loading:false,members:action.payload}
+        }
+        case MEMBER_CARDIOWEIGHT_FAIL:{
+            return {loading:false, error:action.payload}
+        }
+        default:
+            return state
+    }
+}
+
+
 
 
 export const deleteMemberReducer =(state={deleting:false},action)=>{

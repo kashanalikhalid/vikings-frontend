@@ -16,13 +16,13 @@ import Pagination from 'react-responsive-pagination';
 import 'font-awesome/css/font-awesome.min.css';
 import SimpleLoader from '../components/Loaders/SimpleLoader'
 import DeleteLoader from '../components/Loaders/DeleteLoader'
-import {deleteMember,memberList} from "../actions/memberActions.js";
+import {deleteMember,cardioList} from "../actions/memberActions.js";
 
 
-const MemberList=({history, location})=>{
+const CardioList=({history, location})=>{
 
     const dispatch= useDispatch()
-    const memberListData =useSelector(state=>state.memberList)
+    const memberListData =useSelector(state=>state.memberCardio)
     const deleted =useSelector(state=>state.memberDelete)
 
 
@@ -50,10 +50,10 @@ const MemberList=({history, location})=>{
 
     useEffect(()=>{
         if(location.search){
-            dispatch(memberList(location.pathname+location.search))
+            dispatch(cardioList(location.pathname+location.search))
         }
         else{
-            dispatch(memberList(location.pathname))
+            dispatch(cardioList(location.pathname))
         }
 
 
@@ -64,9 +64,9 @@ const MemberList=({history, location})=>{
         setCurrentPage(1)
         setSearch(value)
         if(value!=='')
-            history.push(`/admin/members?search=${value}`)
+            history.push(`/admin/cardio?search=${value}`)
         else{
-            history.push(`/admin/members`)
+            history.push(`/admin/cardio`)
         }
     }
 
@@ -74,10 +74,10 @@ const MemberList=({history, location})=>{
         setCurrentPage(page);
         if(search==='')
         {
-            history.push(`/admin/members?page=${page}`)
+            history.push(`/admin/cardio?page=${page}`)
         }
         else{
-            history.push(`/admin/members?search=${search}&page=${page}`)
+            history.push(`/admin/cardio?search=${search}&page=${page}`)
         }
     }
 
@@ -253,4 +253,4 @@ const MemberList=({history, location})=>{
     );
 }
 
-export default MemberList;
+export default CardioList;
