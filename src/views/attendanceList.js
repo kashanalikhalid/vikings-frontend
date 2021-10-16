@@ -16,6 +16,7 @@ import Pagination from 'react-responsive-pagination';
 import 'font-awesome/css/font-awesome.min.css';
 import SimpleLoader from '../components/Loaders/SimpleLoader'
 import {attendanceList} from "../actions/attendanceActions";
+import {cardioList} from "../actions/memberActions";
 
 
 const AttendanceList = ({history,location}) => {
@@ -29,7 +30,12 @@ const AttendanceList = ({history,location}) => {
     const [dateValue,setDateValue]=useState('')
 
     useEffect(()=>{
-            dispatch(attendanceList(`${location.pathname}?search=${search}`))
+        if(location.search){
+            dispatch(attendanceList(location.pathname+location.search))
+        }
+        else{
+            dispatch(attendanceList(location.pathname))
+        }
 
 
 

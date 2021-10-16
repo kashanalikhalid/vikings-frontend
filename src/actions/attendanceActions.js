@@ -15,6 +15,7 @@ export const attendanceList=(url)=>{
             dispatch({
                 type:ATTENDANCE_LIST_REQUEST
             })
+            console.log(url)
 
             const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
                 headers:{
