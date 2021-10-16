@@ -30,14 +30,13 @@ const AttendanceList = ({history,location}) => {
     const [dateValue,setDateValue]=useState('')
 
     useEffect(()=>{
+
         if(location.search){
             dispatch(attendanceList(location.pathname+location.search))
         }
         else{
-            dispatch(attendanceList(location.pathname))
+            dispatch(attendanceList(`${location.pathname}?search=${search}`))
         }
-
-
 
 
     },[location,dispatch,history])

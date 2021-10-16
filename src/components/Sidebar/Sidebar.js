@@ -5,6 +5,7 @@ const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
 
 import {Nav, NavDropdown, SplitButton, Dropdown, DropdownButton} from "react-bootstrap";
 import '../../assets/css/sidebar.css'
+import logo from '../../assets/img/Vikings.png'
 
 
 function Sidebar({ color, image, routes }) {
@@ -30,7 +31,7 @@ function Sidebar({ color, image, routes }) {
           >
             <div className="logo-img">
               <img
-                src={require("assets/img/reactlogo.png").default}
+                src={logo}
                 alt="..."
               />
             </div>
