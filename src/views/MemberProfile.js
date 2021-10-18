@@ -43,6 +43,8 @@ const MemberProfile=({match,history})=> {
     const[discount,setDiscount] = useState(null);
     const[discountAmount,setDiscountAmount] = useState(0)
     const[training,setTraining]=useState(null)
+    const[trainingFee,setTrainingFee]=useState(null)
+
 
     const [show, setShow] = useState(false);
 
@@ -121,6 +123,7 @@ const MemberProfile=({match,history})=> {
             setGroup(group===null?member.group:group)
             setTraining(training===null?member.training:training)
             setMembership(membership===null?member.membership:membership)
+            setTrainingFee(trainingFee===null?member.trainingFee:trainingFee)
             if ((gender||member.gender) === "male") {
                 if ((membership||member.membership) === 'Weight Training') {
                     amount = 1500
@@ -151,7 +154,7 @@ const MemberProfile=({match,history})=> {
                 discount = discount + 15
             }
             if ((training||member.training) === true) {
-                amount = amount + trainingcost;
+                amount = amount + parseInt(trainingFee);
             }
         }
 
@@ -167,10 +170,8 @@ const MemberProfile=({match,history})=> {
 
                     amount = 3000
                 }
-                trainingcost = 6000
             } else {
                 amount = 3000
-                trainingcost = 3000
             }
             if (months === 3) {
                 discount = discount + 10
@@ -186,7 +187,7 @@ const MemberProfile=({match,history})=> {
                 discount = discount + 15
             }
             if (training === true) {
-                amount = amount + trainingcost;
+                amount = amount + parseInt(trainingFee);
             }
         }
         discount=0;
@@ -372,7 +373,7 @@ const MemberProfile=({match,history})=> {
                                                     </Form.Group>
                                                 </Col>
 
-                                                <Col className="pr-1" md="3">
+                                                <Col className="pr-1" md="1">
                                                     <Form.Group>
                                                         <label>Fee Amount</label>
                                                         <Form.Control
@@ -381,6 +382,17 @@ const MemberProfile=({match,history})=> {
                                                             value={fee===null?member.fee :fee}
                                                             onChange={(e)=>{setFee(e.target.value)}}
                                                             required={true}
+                                                        ></Form.Control>
+                                                    </Form.Group>
+                                                </Col>
+
+                                                <Col className="pr-1" md="2">
+                                                    <Form.Group>
+                                                        <label>Training Fee</label>
+                                                        <Form.Control
+                                                            type="number"
+                                                            value={trainingFee===null?member.trainingFee :trainingFee}
+                                                            onChange={(e)=>{setTrainingFee(e.target.value)}}
                                                         ></Form.Control>
                                                     </Form.Group>
                                                 </Col>

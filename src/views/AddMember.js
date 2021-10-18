@@ -39,6 +39,7 @@ const AddMember=({match,history})=> {
     const[discount,setDiscount] = useState(0);
     const[discountAmount,setDiscountAmount] = useState(0)
     const[training,setTraining]=useState(false)
+    const[trainingFee,setTrainingFee]=useState(0)
 
 
     const [show, setShow] = useState(false);
@@ -68,7 +69,7 @@ const AddMember=({match,history})=> {
     const onSubmitHandler= (e)=>{
         e.preventDefault();
         const data={
-            contact,city,address,name,cnic,membership,registrationDate,feeDate,fee,rfid,months,group,discount,gender
+            contact,city,address,name,cnic,membership,registrationDate,feeDate,fee,rfid,months,group,discount,gender,trainingFee,training
         }
         const rfidData={
             rfid,type:'member'
@@ -116,11 +117,9 @@ const AddMember=({match,history})=> {
             else {
                 amount=3000
             }
-         trainingcost=6000
         }
         else {
             amount=3000
-            trainingcost=3000
         }
         if(months===3)
         {discount=discount+10
@@ -142,7 +141,7 @@ const AddMember=({match,history})=> {
         }
         if(training===true)
         {
-            amount=amount+trainingcost;
+            amount=amount+parseInt(trainingFee);
         }
         discount=0;
         const checkDiscount=(discount/100)*amount
@@ -324,7 +323,7 @@ const AddMember=({match,history})=> {
                                             </Form.Group>
                                         </Col>
 
-                                        <Col className="pr-1" md="3">
+                                        <Col className="pr-1" md="1">
                                             <Form.Group>
                                                 <label>Fee Amount</label>
                                                 <Form.Control
@@ -333,6 +332,18 @@ const AddMember=({match,history})=> {
                                                     onChange={(e)=>{setFee(e.target.value)}}
                                                     required={true}
                                                     disabled
+                                                ></Form.Control>
+                                            </Form.Group>
+                                        </Col>
+
+                                        <Col className="pr-1" md="2">
+                                            <Form.Group>
+                                                <label>Training Cost</label>
+                                                <Form.Control
+                                                    type="number"
+                                                    value={trainingFee}
+                                                    onChange={(e)=>{setTrainingFee(e.target.value)}}
+                                                    required={true}
                                                 ></Form.Control>
                                             </Form.Group>
                                         </Col>
