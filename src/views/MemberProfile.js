@@ -67,7 +67,7 @@ const MemberProfile=({match,history})=> {
         e.preventDefault();
         const data={
                 contact,city,address,name,cnic,membership:membership===null?member.membership:membership,registrationDate,feeDate,fee,rfid,gender:gender===null?member.gender:gender
-            ,months:months===null?member.months:months
+            ,months:months===null?member.months:months,trainingFee:trainingFee===null?member.trainingFee:trainingFee
             ,group:group===null?member.group:group
             ,discount
             ,training:training===null?member.training:training
