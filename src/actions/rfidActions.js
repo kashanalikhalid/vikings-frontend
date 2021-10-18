@@ -19,26 +19,26 @@ export const verifyRfid=(rfid)=>{
             dispatch({
                 type:VERIFY_RFID_REQUEST,
             })
-            const data=await axios.get(`http://localhost:5000/admin/verifyrfid/${rfid}`,{
+            const data=await axios.get(`https://vikings-0.herokuapp.com/admin/verifyrfid/${rfid}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            if(data.data.allowed==true)
-            {
-                await axios.get(`http://localhost:5000/off`,{
-                    headers:{
-                        'Content-Type': 'application/json'
-                    }
-                })
-                await awaitTimeout(2000)
-                await axios.get(`http://localhost:5000/on`,{
-                    headers:{
-                        'Content-Type': 'application/json'
-                    }
-                })
-            }
+            // if(data.data.allowed==true)
+            // {
+            //     await axios.get(`http://localhost:5000/off`,{
+            //         headers:{
+            //             'Content-Type': 'application/json'
+            //         }
+            //     })
+            //     await awaitTimeout(2000)
+            //     await axios.get(`http://localhost:5000/on`,{
+            //         headers:{
+            //             'Content-Type': 'application/json'
+            //         }
+            //     })
+            // }
 
             const member= {date:`${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`,
                 name:data.data.name,
@@ -48,11 +48,11 @@ export const verifyRfid=(rfid)=>{
 
             }
 
-            const attendance=axios.post(`https://vikings-0.herokuapp.com/admin/attendance`,member,{
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            })
+            // const attendance=axios.post(`https://vikings-0.herokuapp.com/admin/attendance`,member,{
+            //     headers:{
+            //         'Content-Type': 'application/json'
+            //     }
+            // })
 
 
             dispatch({
