@@ -5,7 +5,7 @@ const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
 
 import {Nav, NavDropdown, SplitButton, Dropdown, DropdownButton} from "react-bootstrap";
 import '../../assets/css/sidebar.css'
-import logo from '../../assets/img/vikings.png'
+import logo from '../../assets/img/Vikings.svg'
 
 
 function Sidebar({ color, image, routes }) {
