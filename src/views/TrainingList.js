@@ -189,7 +189,7 @@ const TrainingList=({history, location})=>{
                     {
                         members===undefined? '' : members.members.map(member =>{
                             let days=feeStatus(member.feeDate)
-                            let color= days>31? '#df4759': 'transparent'
+                            let color= days>(31*member.months)? '#df4759': 'transparent'
                             return(
                                 <div style={{backgroundColor: `${color}` , "&:hover": {backgroundColor: `${color}`}}} key={member._id}  className='table-entry'>
                                     <Row  className='justify-content-center flex-row align-items-center' >
