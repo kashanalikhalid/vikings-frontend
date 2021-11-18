@@ -137,7 +137,7 @@ const MemberProfile=({match,history})=> {
                 }
                 trainingcost = 6000
             } else {
-                amount = 3000
+                amount = 2500
                 trainingcost = 3000
             }
             if ((months||member.months) === 3) {
@@ -171,7 +171,7 @@ const MemberProfile=({match,history})=> {
                     amount = 3000
                 }
             } else {
-                amount = 3000
+                amount = 2500
             }
             if (months === 3) {
                 discount = discount + 10

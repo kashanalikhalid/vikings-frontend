@@ -119,7 +119,7 @@ const AddMember=({match,history})=> {
             }
         }
         else {
-            amount=3000
+            amount=2500
         }
         if(months===3)
         {discount=discount+10
