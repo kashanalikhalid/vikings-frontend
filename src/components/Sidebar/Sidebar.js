@@ -131,6 +131,18 @@ function Sidebar({ color, image, routes }) {
                 </NavDropdown>
             </li>
 
+            <li
+                className={
+                    activeRoute('/admin/feehistory')
+                }
+            >
+                <NavLink to='/admin/feehistory'   className="nav-link">
+                    <span> <i className='nc-icon nc-money-coins' /> <p>Fee History</p> </span>
+                </NavLink>
+
+            </li>
+
+
 
             <li
                 className={

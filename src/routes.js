@@ -28,6 +28,7 @@ import TrainingList from "./views/TrainingList";
 import WeightList from "./views/WeightList";
 import CardioList from "./views/CardioList";
 import CardioWeightList from "./views/CardioWeight";
+import FeeHistory from "./views/FeeHistory";
 
 const dashboardRoutes = [
 
@@ -96,6 +97,11 @@ const dashboardRoutes = [
   {
     path: "/verification",
     component: Verify,
+    layout: "/admin",
+  },
+  {
+    path: "/feehistory",
+    component: FeeHistory,
     layout: "/admin",
   },
 

@@ -64,9 +64,9 @@ const CardioWeightList=({history, location})=>{
         setCurrentPage(1)
         setSearch(value)
         if(value!=='')
-            history.push(`/admin/stengthcardio?search=${value}`)
+            history.push(`/admin/strengthcardio?search=${value}`)
         else{
-            history.push(`/admin/stengthcardio`)
+            history.push(`/admin/strengthcardio`)
         }
     }
 
@@ -74,10 +74,10 @@ const CardioWeightList=({history, location})=>{
         setCurrentPage(page);
         if(search==='')
         {
-            history.push(`/admin/stengthcardio?page=${page}`)
+            history.push(`/admin/strengthcardio?page=${page}`)
         }
         else{
-            history.push(`/admin/stengthcardio?search=${search}&page=${page}`)
+            history.push(`/admin/strengthcardio?search=${search}&page=${page}`)
         }
     }
 

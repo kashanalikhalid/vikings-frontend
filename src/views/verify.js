@@ -49,6 +49,8 @@ const Verify = ({navigation}) => {
 
     }
 
+  
+
     function formatDate(date) {
         var hours = date.getHours();
         var minutes = date.getMinutes();

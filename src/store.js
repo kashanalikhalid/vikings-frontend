@@ -33,6 +33,10 @@ import {
     attendanceListReducer
 } from "./reducers/attendanceReducer";
 
+import {
+    feeListReducer
+} from "./reducers/feeReducer";
+
 
 const initialState={
 
@@ -60,7 +64,9 @@ const reducer= combineReducers({
     allMembers:allMembersListReducer,
 
     verifyStatus:verifyRfidReducer,
-    attendanceList:attendanceListReducer
+    attendanceList:attendanceListReducer,
+
+    feeList:feeListReducer
 
 })
 
