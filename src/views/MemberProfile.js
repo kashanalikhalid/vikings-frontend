@@ -126,18 +126,18 @@ const MemberProfile=({match,history})=> {
             setTrainingFee(trainingFee===null?member.trainingFee:trainingFee)
             if ((gender||member.gender) === "male") {
                 if ((membership||member.membership) === 'Weight Training') {
-                    amount = 1500
+                    amount = 1000
                 }
                 else if((membership||member.membership)==='Cardio')
                 {
-                    amount=2000
+                    amount=1500
                 }else {
 
-                    amount = 3000
+                    amount = 2000
                 }
                 trainingcost = 6000
             } else {
-                amount = 2500
+                amount = 2000
                 trainingcost = 3000
             }
             if ((months||member.months) === 3) {
@@ -161,17 +161,17 @@ const MemberProfile=({match,history})=> {
         else{
             if (gender === 'male') {
                 if ((membership||member.membership) === 'Weight Training') {
-                    amount = 1500
+                    amount = 1000
                 }
                 else if((membership||member.membership)==='Cardio')
                 {
-                    amount=2000
+                    amount=1500
                 }else {
 
-                    amount = 3000
+                    amount = 2000
                 }
             } else {
-                amount = 2500
+                amount = 2000
             }
             if (months === 3) {
                 discount = discount + 10
