@@ -115,7 +115,7 @@ const AddMember=({match,history})=> {
                 amount=1500
             }
             else {
-                amount=2500
+                amount=2000
             }
         }
         else {
