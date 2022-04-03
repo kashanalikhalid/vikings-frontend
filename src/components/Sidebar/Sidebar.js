@@ -65,6 +65,17 @@ function Sidebar({ color, image, routes }) {
 
             <li
                 className={
+                    activeRoute('/admin/females')
+                }
+            >
+                <NavLink to='/admin/females'   className="nav-link">
+                    <span> <i className='nc-icon nc-single-02' /> <p>Females</p> </span>
+                </NavLink>
+
+            </li>
+
+            <li
+                className={
                     activeRoute('/admin/training')
                 }
             >

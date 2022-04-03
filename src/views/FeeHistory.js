@@ -16,8 +16,6 @@ import Pagination from 'react-responsive-pagination';
 import 'font-awesome/css/font-awesome.min.css';
 import SimpleLoader from '../components/Loaders/SimpleLoader'
 import {feeHistory} from "../actions/feeActions";
-import DeleteLoader from '../components/Loaders/DeleteLoader'
-import {deleteMember,cardioList} from "../actions/memberActions.js";
 
 
 const FeeHistory=({history, location})=>{
@@ -92,7 +90,7 @@ const FeeHistory=({history, location})=>{
                     />
 
                     {
-                        fees===undefined? '' : fees.fees.reverse().map(member =>{
+                        fees===undefined? '' : fees.fees.map(member =>{
                             return(
                                 <div  key={member._id}  className='table-entry'>
                                     <Row  className='justify-content-center flex-row align-items-center' >

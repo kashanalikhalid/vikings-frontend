@@ -31,7 +31,10 @@ import{
     MEMBER_CARDIOWEIGHT_FAIL,
     ALLMEMBERS_LIST_REQUEST,
     ALLMEMBERS_LIST_SUCCESS,
-    ALLMEMBERS_LIST_FAIL
+    ALLMEMBERS_LIST_FAIL,
+    MEMBER_FEMALE_REQUEST,
+    MEMBER_FEMALE_SUCCESS,
+    MEMBER_FEMALE_FAIL
 } from '../constants/memberConstants'
 
 
@@ -42,6 +45,19 @@ export const addMemberReducer=(state={},action)=>{
         case ADD_MEMBER_SUCCESS:
             return { loading:false,member:action.payload}
         case ADD_MEMBER_FAIL:
+            return {loading:false,error:action.payload}
+        default:
+            return state
+    }
+}
+
+export const femaleMemberReducer=(state={},action)=>{
+    switch(action.type){
+        case MEMBER_FEMALE_REQUEST:
+            return {loading:true}
+        case MEMBER_FEMALE_SUCCESS:
+            return { loading:false,members:action.payload}
+        case MEMBER_FEMALE_FAIL:
             return {loading:false,error:action.payload}
         default:
             return state

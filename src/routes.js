@@ -29,6 +29,7 @@ import WeightList from "./views/WeightList";
 import CardioList from "./views/CardioList";
 import CardioWeightList from "./views/CardioWeight";
 import FeeHistory from "./views/FeeHistory";
+import FemaleMember from "./views/FemaleMember";
 
 const dashboardRoutes = [
 
@@ -102,6 +103,11 @@ const dashboardRoutes = [
   {
     path: "/feehistory",
     component: FeeHistory,
+    layout: "/admin",
+  },
+  {
+    path: "/females",
+    component: FemaleMember,
     layout: "/admin",
   },
 

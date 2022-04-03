@@ -31,7 +31,10 @@ import{
     MEMBER_CARDIOWEIGHT_FAIL,
     ALLMEMBERS_LIST_REQUEST,
     ALLMEMBERS_LIST_SUCCESS,
-    ALLMEMBERS_LIST_FAIL
+    ALLMEMBERS_LIST_FAIL,
+    MEMBER_FEMALE_REQUEST,
+    MEMBER_FEMALE_SUCCESS,
+    MEMBER_FEMALE_FAIL
 } from '../constants/memberConstants'
 import axios from 'axios'
 import mongoose from "mongoose";
@@ -403,4 +406,36 @@ export const printReceipt=(data)=>{
     }
 
 }
+
+export const femaleMembers=(url)=>{
+    return async(dispatch)=>{
+        try {
+            dispatch({
+                type:MEMBER_FEMALE_REQUEST
+            })
+            const {data} = await axios.get(`http://localhost:5000${url.toString()}`,{
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+
+
+            dispatch({
+                type:MEMBER_FEMALE_SUCCESS,
+                payload:data
+            })
+        }
+        catch (error) {
+            dispatch({
+                type:MEMBER_FEMALE_FAIL,
+                payload:error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            })
+        }
+    }
+}
+
+
 

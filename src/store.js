@@ -21,7 +21,8 @@ import {
     memberWeightReducer,
     memberCardioReducer,
     memberCardioWeightReducer,
-    allMembersListReducer
+    allMembersListReducer,
+    femaleMemberReducer
 } from "./reducers/memberReducer";
 
 import {
@@ -62,6 +63,8 @@ const reducer= combineReducers({
     memberCount:memberCountReducer,
     receipt:printReceiptReducer,
     allMembers:allMembersListReducer,
+    femaleMembers:femaleMemberReducer,
+
 
     verifyStatus:verifyRfidReducer,
     attendanceList:attendanceListReducer,
