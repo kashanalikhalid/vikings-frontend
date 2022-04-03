@@ -413,7 +413,7 @@ export const femaleMembers=(url)=>{
             dispatch({
                 type:MEMBER_FEMALE_REQUEST
             })
-            const {data} = await axios.get(`http://localhost:5000${url.toString()}`,{
+            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
