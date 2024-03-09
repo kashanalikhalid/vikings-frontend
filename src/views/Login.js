@@ -8,7 +8,7 @@ import {
     Row,
     Col
 } from "react-bootstrap";
-
+import image from "../assets/img/Vikings.svg";
 const Login = ({history}) => {
     const[warning,setWarning] =useState('hidden')
     const [username,setUsername]=useState('')
@@ -25,7 +25,6 @@ const Login = ({history}) => {
 // Initialisation
             if(particle.current && particle)
             {
-                console.log(particle.current)
                 var canvasDiv = particle.current
                 var options = {
                     particleColor: '#e3b04b',
@@ -56,13 +55,15 @@ const Login = ({history}) => {
     }
     return (
         <div id='particle-canvas' ref={particle} className="login-body">
-        <Container className="login-container">
+        <div className="login-container">
             <Row className="login_wrapper">
-                <Col xs={12} md={6} className="login_wrapper--left"></Col>
-                <Col xs={12} md={6} className="login_wrapper--right flex-column">
-                   <Container className="px-5 pb-5">
-                       <Row className="justify-content-center align-items-center pt-4">
-                           <h3 className="login-h3">Sign In</h3>
+                <Col xs={12} md={6} lg={4} className="login_wrapper--right flex-column">
+                    <div className="text-center">
+                        <img className="mt-5" src={image} height="150" />
+                    </div>
+                   <Container className="px-5 pb-5 login-form">
+                       <Row className="justify-content-start align-items-center pt-4">
+                           <h3 className="login-h3">S<span className="login-h3-underline">ig</span>n In</h3>
                        </Row>
                        <Row  className="pb-3 justify-content-center">
                            <h6 style={{visibility:`${warning}`, opacity:`${opacity}` , marginTop:`${margin}`}} className="login-warning">Invalid username or password</h6>
@@ -77,7 +78,7 @@ const Login = ({history}) => {
                                <Form.Label className="login-label">PASSWORD</Form.Label>
                                <Form.Control value={password} onChange={(e)=>{setPassword(e.target.value)}} className="login-input" type="password" placeholder="Password" />
                            </Form.Group>
-                           <Row className="justify-content-center">
+                           <Row className="justify-content-end">
                                <Button type="submit" className="login-submit">Sign in</Button>
                            </Row>
                        </Form>
@@ -86,8 +87,10 @@ const Login = ({history}) => {
 
 
                 </Col>
+                <Col xs={12} md={6} lg={8} className="login_wrapper--left"></Col>
+
             </Row>
-        </Container>
+        </div>
         </div>
     );
 };

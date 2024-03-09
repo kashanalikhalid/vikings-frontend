@@ -29,6 +29,7 @@ import{
 } from '../constants/feeConstants'
 import axios from "axios";
 
+const server_endpoint = process.env.REACT_APP_VIKINGS_SERVER_ENDPOINT
 export const feeHistory=(url)=>{
     return async(dispatch)=>{
         try {
@@ -36,7 +37,7 @@ export const feeHistory=(url)=>{
                 type:FEE_LIST_REQUEST
             })
 
-            let {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            let {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }

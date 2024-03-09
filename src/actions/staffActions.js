@@ -19,7 +19,7 @@ import{
     STAFF_COUNT_FAIL
 } from '../constants/staffConstants'
 import axios from 'axios'
-
+const server_endpoint = process.env.REACT_APP_VIKINGS_SERVER_ENDPOINT
 
 export const addStaff=(Staff,Rfid)=>{
     return async (dispatch)=>{
@@ -28,13 +28,13 @@ export const addStaff=(Staff,Rfid)=>{
                 type:ADD_STAFF_REQUEST
             })
 
-            const {data}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addstaff',Staff,{
+            const {data}= await axios.post(`${server_endpoint}/admin/data/addstaff`,Staff,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            const {rfid}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addrfid',Rfid,{
+            const {rfid}= await axios.post(`${server_endpoint}/admin/data/addrfid`,Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -66,7 +66,7 @@ export const staffList=(url)=>{
                 type:STAFF_LIST_REQUEST
             })
 
-            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            const {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -94,13 +94,13 @@ export const deleteStaff=(id,rfid)=>{
                 type:DELETE_STAFF_REQUEST
             })
 
-            await axios.delete(`https://vikings-0.herokuapp.com/admin/data/deletestaff/${id}`,{
+            await axios.delete(`${server_endpoint}/admin/data/deletestaff/${id}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            await axios.delete(`https://vikings-0.herokuapp.com/admin/data/deleterfid/${rfid}`,{
+            await axios.delete(`${server_endpoint}/admin/data/deleterfid/${rfid}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -128,7 +128,7 @@ export const getStaff=(id)=>{
                 type:STAFF_DETAILS_REQUEST
             })
 
-            const {data}=await axios.get(`https://vikings-0.herokuapp.com/admin/staffprofile/${id}`,{
+            const {data}=await axios.get(`${server_endpoint}/admin/staffprofile/${id}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -157,13 +157,13 @@ export const updateStaff=(id,staff,Rfid,updateRfid)=>{
                 type:UPDATE_STAFF_REQUEST
             })
 
-            const {data}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updatestaff/${id}`,staff,{
+            const {data}=await axios.patch(`${server_endpoint}/admin/updatestaff/${id}`,staff,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            const {rfid}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updaterfid/${updateRfid}`,Rfid,{
+            const {rfid}=await axios.patch(`${server_endpoint}/admin/updaterfid/${updateRfid}`,Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -192,7 +192,7 @@ export const countStaff=()=>{
                 type:STAFF_COUNT_REQUEST
             })
 
-            const count=await axios.get('https://vikings-0.herokuapp.com/admin/data/staffcount',{
+            const count=await axios.get(`${server_endpoint}/admin/data/staffcount`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }

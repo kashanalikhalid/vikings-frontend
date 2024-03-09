@@ -9,7 +9,7 @@ import {
 } from "../constants/rfidConstants";
 import axios from 'axios'
 import moment from 'moment'
-
+const server_endpoint = process.env.REACT_APP_VIKINGS_SERVER_ENDPOINT
 const awaitTimeout = delay =>
     new Promise(resolve => setTimeout(resolve, delay));
 
@@ -19,7 +19,7 @@ export const verifyRfid=(rfid)=>{
             dispatch({
                 type:VERIFY_RFID_REQUEST,
             })
-            const data=await axios.get(`https://vikings-0.herokuapp.com/admin/verifyrfid/${rfid}`,{
+            const data=await axios.get(`${server_endpoint}/admin/verifyrfid/${rfid}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -48,7 +48,7 @@ export const verifyRfid=(rfid)=>{
 
             }
 
-            const attendance=axios.post(`https://vikings-0.herokuapp.com/admin/attendance`,member,{
+            const attendance=axios.post(`${server_endpoint}/admin/attendance`,member,{
                 headers:{
                     'Content-Type': 'application/json'
                 }

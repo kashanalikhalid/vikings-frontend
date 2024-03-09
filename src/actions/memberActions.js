@@ -38,7 +38,7 @@ import{
 } from '../constants/memberConstants'
 import axios from 'axios'
 import mongoose from "mongoose";
-
+const server_endpoint = process.env.REACT_APP_VIKINGS_SERVER_ENDPOINT
 export const addMember=(Member,Rfid)=>{
     return async (dispatch)=>{
         try{
@@ -47,13 +47,13 @@ export const addMember=(Member,Rfid)=>{
             })
 
 
-            const {data}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addmember',Member,{
+            const {data}= await axios.post(`${server_endpoint}/admin/data/addmember`,Member,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            const {rfid}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addrfid',Rfid,{
+            const {rfid}= await axios.post(`${server_endpoint}/admin/data/addrfid`,Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -89,7 +89,7 @@ export const allMembers=()=>{
 
 
 
-                let {data} = await axios.get(`https://vikings-0.herokuapp.com/admin/allmembers`,{
+                let {data} = await axios.get(`${server_endpoint}/admin/allmembers`,{
                     headers:{
                         'Content-Type': 'application/json'
                     }
@@ -124,7 +124,7 @@ export const memberList=(url)=>{
                 type:MEMBER_LIST_REQUEST
             })
 
-            let {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            let {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -151,7 +151,7 @@ export const trainingList=(url)=>{
             dispatch({
                 type:MEMBER_TRAINING_REQUEST
             })
-            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            const {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -183,7 +183,7 @@ export const cardioList=(url)=>{
             dispatch({
                 type:MEMBER_CARDIO_REQUEST
             })
-            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            const {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -214,7 +214,7 @@ export const weightList=(url)=>{
             dispatch({
                 type:MEMBER_WEIGHT_REQUEST
             })
-            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            const {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -244,7 +244,7 @@ export const cardioWeightList=(url)=>{
             dispatch({
                 type:MEMBER_CARDIOWEIGHT_REQUEST
             })
-            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            const {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -274,13 +274,13 @@ export const deleteMember=(id,rfid)=>{
                 type:DELETE_MEMBER_REQUEST
             })
 
-            await axios.delete(`https://vikings-0.herokuapp.com/admin/data/deletemember/${id}`,{
+            await axios.delete(`${server_endpoint}/admin/data/deletemember/${id}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
-            await axios.delete(`https://vikings-0.herokuapp.com/admin/data/deleterfid/${rfid}`,{
+            await axios.delete(`${server_endpoint}/admin/data/deleterfid/${rfid}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -309,7 +309,7 @@ export const getMember=(id)=>{
                 type:MEMBER_DETAILS_REQUEST
             })
 
-            const {data}=await axios.get(`https://vikings-0.herokuapp.com/admin/memberprofile/${id}`,{
+            const {data}=await axios.get(`${server_endpoint}/admin/memberprofile/${id}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -339,14 +339,14 @@ export const updateMember=(id,member,Rfid,updateRfid)=>{
             })
             console.log("hi")
 
-            const {data}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updatemember/${id}`,member,{
+            const {data}=await axios.patch(`${server_endpoint}/admin/updatemember/${id}`,member,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             })
 
 
-            const {rfid}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updaterfid/${updateRfid}`,Rfid,{
+            const {rfid}=await axios.patch(`${server_endpoint}/admin/updaterfid/${updateRfid}`,Rfid,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -375,7 +375,7 @@ export const countMember=()=>{
                 type:MEMBER_COUNT_REQUEST
             })
 
-            const count=await axios.get('https://vikings-0.herokuapp.com/admin/membercount',{
+            const count=await axios.get(`${server_endpoint}/admin/membercount`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
@@ -413,7 +413,7 @@ export const femaleMembers=(url)=>{
             dispatch({
                 type:MEMBER_FEMALE_REQUEST
             })
-            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            const {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }

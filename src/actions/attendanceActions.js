@@ -8,16 +8,15 @@ import{
 } from '../constants/attendanceConstants'
 import axios from 'axios'
 
-
+const server_endpoint = process.env.REACT_APP_VIKINGS_SERVER_ENDPOINT
 export const attendanceList=(url)=>{
     return async(dispatch)=>{
         try {
             dispatch({
                 type:ATTENDANCE_LIST_REQUEST
             })
-            console.log(url)
 
-            const {data} = await axios.get(`https://vikings-0.herokuapp.com${url.toString()}`,{
+            const {data} = await axios.get(`${server_endpoint}${url.toString()}`,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
