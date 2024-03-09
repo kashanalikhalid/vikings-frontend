@@ -69,17 +69,25 @@ const Login = ({history}) => {
                            <h6 style={{visibility:`${warning}`, opacity:`${opacity}` , marginTop:`${margin}`}} className="login-warning">Invalid username or password</h6>
                        </Row>
                        <Form onSubmit={auth}>
-                           <Form.Group controlId="formBasicEmail">
-                               <Form.Label className="login-label">USERNAME</Form.Label>
-                               <Form.Control value={username} onChange={(e)=>{setUsername(e.target.value)}} className="login-input" type="text" placeholder="Enter username" />
+                           <Form.Group className="mx-4" controlId="formBasicEmail">
+                               <Form.Label className="login-label">Username*</Form.Label>
+                               <Form.Control value={username} onChange={(e) => {
+                                   setUsername(e.target.value)
+                               }} className="login-input" type="text" placeholder="Enter username"/>
+                               <i className='login-icons nc-icon nc-single-02'/>
                            </Form.Group>
 
-                           <Form.Group controlId="formBasicPassword">
-                               <Form.Label className="login-label">PASSWORD</Form.Label>
-                               <Form.Control value={password} onChange={(e)=>{setPassword(e.target.value)}} className="login-input" type="password" placeholder="Password" />
+                           <Form.Group className="mx-4" controlId="formBasicPassword">
+                               <Form.Label className="login-label">Password*</Form.Label>
+
+
+                               <Form.Control value={password} onChange={(e) => {
+                                   setPassword(e.target.value)
+                               }} className="login-input" type="password" placeholder="Password"/>
+                               <i className='login-icons nc-icon nc-lock-circle-open'/>
                            </Form.Group>
                            <Row className="justify-content-end">
-                               <Button type="submit" className="login-submit">Sign in</Button>
+                           <Button type="submit" className="login-submit">Sign in</Button>
                            </Row>
                        </Form>
 

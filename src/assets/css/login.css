@@ -35,10 +35,18 @@ background:white;
 .login-label
 {
     font-family: 'Muli';
-    font-size:14px;
-    font-weight:bold;
-}
+    font-size:12px;
+    font-weight:500;
 
+}
+.login-icons{
+    margin-top:-28px;
+    margin-left: -34px;
+    position: absolute;
+    color:gray;
+    font-weight: 800 !important;
+
+}
 
 .login-submit
 {
@@ -84,6 +92,8 @@ background:white;
 .login-input{
     border:none !important;
     border-bottom: 1px solid lightgrey !important;
+    padding: 0 !important;
+    font-size: 13px !important;
 }
 
 .login-warning
