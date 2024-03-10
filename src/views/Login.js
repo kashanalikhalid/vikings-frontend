@@ -13,7 +13,6 @@ const Login = ({ history }) => {
   const [opacity, setOpacity] = useState(0);
   const [margin, setMargin] = useState("0px");
   const [passwordVisibility, setPasswordVisibility] = useState(false);
-  let particle = useRef(null);
 
   useEffect(() => {}, []);
 
@@ -54,7 +53,7 @@ const Login = ({ history }) => {
               </h6>
             </Row>
             <Form className="position-relative" onSubmit={auth}>
-              <Form.Group className="mx-4" controlId="formBasicEmail">
+              <Form.Group className="mx-2 mx-md-4" controlId="formBasicEmail">
                 <Form.Label
                   className={`login-label ${username || usernameFocus ? "display-label" : ""}`}
                 >
@@ -74,7 +73,10 @@ const Login = ({ history }) => {
                 <i className="login-icons nc-icon nc-single-02" />
               </Form.Group>
 
-              <Form.Group className="mx-4" controlId="formBasicPassword">
+              <Form.Group
+                className="mx-2 mx-md-4"
+                controlId="formBasicPassword"
+              >
                 <Form.Label
                   className={`login-label ${password || passwordFocus ? "display-label" : ""} `}
                 >
