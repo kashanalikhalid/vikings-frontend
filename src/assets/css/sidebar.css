@@ -25,6 +25,17 @@
 
 }
 
+.nav-link{
+    height: 40px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0 !important;
+}
+
+.nav-link-sidebar-padding{
+    padding: 5px 15px !important
+
+}
+
 .btn-dropdownnested-item
 {
 
