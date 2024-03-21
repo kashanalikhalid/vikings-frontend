@@ -94,75 +94,77 @@ const MemberList = ({ history, location }) => {
               let days = feeStatus(member.feeDate);
               if (days > 31 * member.months - 3) {
                 return (
-                  <div
-                    style={{
-                      backgroundColor: `transparent`,
-                      "&:hover": { backgroundColor: `transparent` },
-                    }}
-                    key={member._id}
-                    className="table-entry"
-                  >
-                    <Row className="justify-content-center flex-row align-items-center">
-                      <Col xs={10} md={1}>
-                        <img
-                          style={{ objectFit: "contain" }}
-                          className="img-thumbnail "
-                          width={100}
-                          height={100}
-                          src={`https://cdn1.vectorstock.com/i/1000x1000/51/05/male-profile-avatar-with-brown-hair-vector-12055105.jpg`}
-                        />
-                      </Col>
-                      <Col xs={6} md={6}>
-                        <p>
-                          <span>{member.name} </span>
-                          <br />
-                          <span>{member.cnic}</span>
-                        </p>
-                      </Col>
-                      <Col
-                        className=" d-flex justify-content-end"
-                        xs={6}
-                        md={4}
-                      >
-                        <OverlayTrigger
-                          overlay={
-                            <Tooltip id="tooltip-829164576">Remove</Tooltip>
-                          }
+                  <div className="table-container">
+                    <div
+                      style={{
+                        backgroundColor: `transparent`,
+                        "&:hover": { backgroundColor: `transparent` },
+                      }}
+                      key={member._id}
+                      className="table-entry"
+                    >
+                      <Row className="justify-content-center flex-row align-items-center">
+                        <Col xs={10} md={1}>
+                          <img
+                            style={{ objectFit: "contain" }}
+                            className="img-thumbnail "
+                            width={100}
+                            height={100}
+                            src={`https://cdn1.vectorstock.com/i/1000x1000/51/05/male-profile-avatar-with-brown-hair-vector-12055105.jpg`}
+                          />
+                        </Col>
+                        <Col xs={6} md={6}>
+                          <p>
+                            <span>{member.name} </span>
+                            <br />
+                            <span>{member.cnic}</span>
+                          </p>
+                        </Col>
+                        <Col
+                          className=" d-flex justify-content-end"
+                          xs={6}
+                          md={4}
                         >
-                          <Button
-                            onClick={() => {
-                              handleDelete(member._id, member.rfid);
-                            }}
-                            size="sm"
-                            className="btn-fill btn-padding btn-margin"
-                            variant="danger"
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-829164576">Remove</Tooltip>
+                            }
                           >
-                            <i className=" far fa-trash-alt fa-2x "> </i>
-                          </Button>
-                        </OverlayTrigger>
+                            <Button
+                              onClick={() => {
+                                handleDelete(member._id, member.rfid);
+                              }}
+                              size="sm"
+                              className="btn-fill btn-padding btn-margin"
+                              variant="danger"
+                            >
+                              <i className=" far fa-trash-alt fa-2x "> </i>
+                            </Button>
+                          </OverlayTrigger>
 
-                        <OverlayTrigger
-                          overlay={
-                            <Tooltip id="tooltip-829164576">Profile</Tooltip>
-                          }
-                        >
-                          <Button
-                            onClick={() => {
-                              history.push(
-                                `/admin/memberprofile/${member._id}`,
-                              );
-                            }}
-                            size="sm"
-                            className="btn-fill btn-padding"
-                            variant="primary"
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-829164576">Profile</Tooltip>
+                            }
                           >
-                            <i className=" icon-margin far fa-id-card fa-2x ">
-                              {" "}
-                            </i>
-                          </Button>
-                        </OverlayTrigger>
-                      </Col>
-                    </Row>
+                            <Button
+                              onClick={() => {
+                                history.push(
+                                  `/admin/memberprofile/${member._id}`,
+                                );
+                              }}
+                              size="sm"
+                              className="btn-fill btn-padding"
+                              variant="primary"
+                            >
+                              <i className=" icon-margin far fa-id-card fa-2x ">
+                                {" "}
+                              </i>
+                            </Button>
+                          </OverlayTrigger>
+                        </Col>
+                      </Row>
+                    </div>
                   </div>
                 );
               }
@@ -205,89 +207,160 @@ const MemberList = ({ history, location }) => {
             classNames="search"
             onEnter={handleSearch}
           />
-          <div className="table-header">
-            <Row className="justify-content-center flex-row align-items-center ">
-              <Col xs={3} md={2}>
-                <p>Name</p>
-              </Col>
-              <Col xs={3} md={2}>
-                <p>Membership</p>
-              </Col>
-              <Col xs={3} md={2}>
-                <p>Contact</p>
-              </Col>
-              <Col xs={3} md={2}>
-                <p>CNIC</p>
-              </Col>
-              <Col xs={3} md={2}>
-                <p>Last Entry</p>
-              </Col>
-              <Col xs={6} md={2}>
-                <p className="pt-2">Actions</p>
-              </Col>
-            </Row>
+          <div className="table-container">
+            <div className="table-header">
+              <Row className="justify-content-center row-width flex-row align-items-center ">
+                <Col xs={2} md={2}>
+                  <p>Name</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p>Membership</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p>Contact</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p>CNIC</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p>Last Entry</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p className="pt-2">Actions</p>
+                </Col>
+              </Row>
+              <Row className="justify-content-center flex-row align-items-center row-width ">
+                <Col xs={2} md={2}>
+                  <p>Name</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p>Membership</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p>Contact</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p>CNIC</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p>Last Entry</p>
+                </Col>
+                <Col xs={2} md={2}>
+                  <p className="pt-2">Actions</p>
+                </Col>
+              </Row>
+            </div>
+
+            {members === undefined
+              ? ""
+              : members.members.map((member) => {
+                  let days = feeStatus(member.feeDate);
+                  let color =
+                    days > 31 * member.months ? "#FFCCCC" : "transparent";
+                  return (
+                    <div
+                      style={{
+                        backgroundColor: `${color}`,
+                        "&:hover": { backgroundColor: `${color}` },
+                      }}
+                      key={member._id}
+                      className="table-entry rows-container"
+                    >
+                      <Row className="justify-content-center flex-row align-items-center flex-nowrap">
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>{member.name} </span>
+                          </p>
+                        </Col>
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>{member.membership} </span>
+                          </p>
+                        </Col>
+
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>{member.contact} </span>
+                          </p>
+                        </Col>
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>{member.cnic}</span>
+                          </p>
+                        </Col>
+
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>
+                              {new Date(member.lastEntry).toLocaleDateString() +
+                                " " +
+                                new Date(member.lastEntry).toLocaleTimeString()}
+                            </span>
+                          </p>
+                        </Col>
+                        <Col xs={6} md={2}>
+                          <Actions
+                            DeleteRecord={() => {
+                              handleDelete(member._id, member.rfid);
+                            }}
+                            OpenProfile={() => {
+                              history.push(
+                                `/admin/memberprofile/${member._id}`,
+                              );
+                            }}
+                          />
+                        </Col>
+                      </Row>
+
+                      <Row className="justify-content-center flex-row align-items-center flex-nowrap">
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>{member.name} </span>
+                          </p>
+                        </Col>
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>{member.membership} </span>
+                          </p>
+                        </Col>
+
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>{member.contact} </span>
+                          </p>
+                        </Col>
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>{member.cnic}</span>
+                          </p>
+                        </Col>
+
+                        <Col xs={3} md={2}>
+                          <p>
+                            <span>
+                              {new Date(member.lastEntry).toLocaleDateString() +
+                                " " +
+                                new Date(member.lastEntry).toLocaleTimeString()}
+                            </span>
+                          </p>
+                        </Col>
+                        <Col xs={6} md={2}>
+                          <Actions
+                            DeleteRecord={() => {
+                              handleDelete(member._id, member.rfid);
+                            }}
+                            OpenProfile={() => {
+                              history.push(
+                                `/admin/memberprofile/${member._id}`,
+                              );
+                            }}
+                          />
+                        </Col>
+                      </Row>
+                    </div>
+                  );
+                })}
           </div>
-
-          {members === undefined
-            ? ""
-            : members.members.map((member) => {
-                let days = feeStatus(member.feeDate);
-                let color =
-                  days > 31 * member.months ? "#FFCCCC" : "transparent";
-                return (
-                  <div
-                    style={{
-                      backgroundColor: `${color}`,
-                      "&:hover": { backgroundColor: `${color}` },
-                    }}
-                    key={member._id}
-                    className="table-entry"
-                  >
-                    <Row className="justify-content-center flex-row align-items-center">
-                      <Col xs={3} md={2}>
-                        <p>
-                          <span>{member.name} </span>
-                        </p>
-                      </Col>
-                      <Col xs={3} md={2}>
-                        <p>
-                          <span>{member.membership} </span>
-                        </p>
-                      </Col>
-
-                      <Col xs={3} md={2}>
-                        <p>
-                          <span>{member.contact} </span>
-                        </p>
-                      </Col>
-                      <Col xs={3} md={2}>
-                        <p>
-                          <span>{member.cnic}</span>
-                        </p>
-                      </Col>
-                      <Col xs={3} md={2}>
-                        <p>
-                          <span>
-                            {new Date(member.lastEntry).toLocaleDateString() +
-                              " " +
-                              new Date(member.lastEntry).toLocaleTimeString()}
-                          </span>
-                        </p>
-                      </Col>
-                      <Col xs={6} md={2}>
-                        <Actions
-                          DeleteRecord={() => {
-                            handleDelete(member._id, member.rfid);
-                          }}
-                          OpenProfile={() => {
-                            history.push(`/admin/memberprofile/${member._id}`);
-                          }}
-                        />
-                      </Col>
-                    </Row>
-                  </div>
-                );
-              })}
           {members === undefined ? (
             ""
           ) : (
