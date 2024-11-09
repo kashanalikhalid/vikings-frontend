@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+ import React, {useEffect, useState} from "react";
 import ChartistGraph from "react-chartist";
 
 
@@ -42,7 +42,6 @@ function Dashboard() {
   },[dispatch])
 
   const getRev = async () => {
-    console.log("getrev fire")
     const res = await axios.get(`https://vikings-0.herokuapp.com/admin/feemonthly?date=${revenueMonth}`)
     if (res.status !== 200){
       setRevenue(0)
@@ -280,6 +279,33 @@ function Dashboard() {
                       <Card.Title as="h4">{members?calculateRevenue():''}</Card.Title>
                     </div>
                   </Col>
+                </Row>
+              </Card.Body>
+
+            </Card>
+          </Col>
+          <Col lg="4" sm="6">
+            <Card className="card-stats">
+              <Card.Body>
+                <Row>
+                  <Col xs="5">
+                    <div className="icon-big text-center icon-warning">
+                      <i className="nc-icon nc-bank text-info"></i>
+                    </div>
+                  </Col>
+                  <Col xs="4">
+                    <div className="numbers">
+                      <p className="card-category">Monthly Revenue</p>
+                      <Form.Group>
+                        <Form.Control
+                            type="month"
+                            value={revenueMonth}
+                            onChange={(e)=>{setRevenueMonth(e.target.value)}}
+                        ></Form.Control>
+                      </Form.Group>
+                    </div>
+                  </Col>
+
                 </Row>
               </Card.Body>
 
