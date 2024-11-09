@@ -101,7 +101,8 @@ const FeeHistory=({history, location})=>{
                                         </Col>
 
                                         <Col  xs={6} md={6}>
-                                            <p >
+                                            <p>
+                                                {console.log(member)}
                                                 <span>{member.name} </span><br/>
                                                 <span>{member.amount}</span><br/>
                                                 <span>{member.date}</span>

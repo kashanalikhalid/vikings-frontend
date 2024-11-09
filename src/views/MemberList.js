@@ -35,7 +35,13 @@ const MemberList=({history, location})=>{
 
 
 
-
+    const handleCopy = (contact) => {
+        navigator.clipboard.writeText(contact).then(() => {
+            alert('Contact copied to clipboard!');
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    };
     const handleDelete=(id,rfid)=>{
         dispatch(deleteMember(id,rfid))
     }
@@ -130,6 +136,14 @@ const MemberList=({history, location})=>{
                                                 <Button onClick={()=>{handleDelete(member._id,member.rfid)}}  size='sm' className='btn-fill btn-padding btn-margin' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
                                             </OverlayTrigger>
 
+                                            <OverlayTrigger
+                                                overlay={
+                                                    <Tooltip id="tooltip-829164576">Copy Contact</Tooltip>
+                                                }
+                                            >
+                                                <Button onClick={()=>{handleCopy(member.contact)}}  size='sm' className='btn-fill btn-padding btn-margin ' variant="warning"><i className=" far fa-copy fa-2x "> </i></Button>
+                                            </OverlayTrigger>
+
 
                                             <OverlayTrigger
                                                 overlay={
@@ -216,7 +230,13 @@ const MemberList=({history, location})=>{
                                                 <Button onClick={()=>{handleDelete(member._id,member.rfid)}}  size='sm' className='btn-fill btn-padding btn-margin d-md-none' variant="danger"><i className=" far fa-trash-alt fa-2x "> </i></Button>
                                             </OverlayTrigger>
 
-
+                                            <OverlayTrigger
+                                                overlay={
+                                                    <Tooltip id="tooltip-829164576">Copy Contact</Tooltip>
+                                                }
+                                            >
+                                                <Button onClick={()=>{handleCopy(member.contact)}}  size='sm' className='btn-fill btn-padding btn-margin ' variant="warning"><i className=" far fa-copy fa-2x "> </i></Button>
+                                            </OverlayTrigger>
                                             <OverlayTrigger
                                                 overlay={
                                                     <Tooltip id="tooltip-829164576">Profile</Tooltip>

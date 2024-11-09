@@ -112,7 +112,13 @@ const AddMember=({match,history})=> {
         if (member){
         }
     }
-
+    const handleCopy = () => {
+        navigator.clipboard.writeText(contact).then(() => {
+            alert('Contact copied to clipboard!');
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    };
     const calculateFee=()=>{
         let amount=0;
         let trainingcost=0
@@ -195,7 +201,7 @@ const AddMember=({match,history})=> {
                             <Card.Body>
                                 <Form onSubmit={(e)=>{onSubmitHandler(e)}}>
                                     <Row>
-                                        <Col className="pr-1" md="6">
+                                        <Col className="pr-1" md="5">
                                             <Form.Group>
                                                 <label>Contact</label>
                                                 <Form.Control
@@ -207,12 +213,27 @@ const AddMember=({match,history})=> {
                                                 ></Form.Control>
                                             </Form.Group>
                                         </Col>
+                                        <Col className="pr-5" md="1">
+                                            <span
+                                                onClick={handleCopy}
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: '55%',
+                                                    tooltip: 'copy',
+                                                    transform: 'translateY(-50%)',
+                                                    cursor: 'pointer',
+                                                    fontSize: '1.2em'
+                                                }}
+                                            >
+                                    📋
+                                </span>
+                                        </Col>
 
-                                        <Col className="pl-1" md="6">
+                                        <Col className="p-0" md="6">
                                             <Form.Group>
                                                 <label>Name</label>
                                                 <Form.Control
-                                                    onChange={(e)=>setName(e.target.value)}
+                                                    onChange={(e) => setName(e.target.value)}
                                                     value={name}
                                                     type="text"
                                                     required={true}

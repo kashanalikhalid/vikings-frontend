@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2b26b66-d853-410f-88dd-b12658dabcdc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/AddMember.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AddMember.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/FeeHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FeeHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MemberList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MemberList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MemberProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MemberProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +142,7 @@
       <workItem from="1717765161888" duration="111000" />
       <workItem from="1731172328959" duration="499000" />
       <workItem from="1731172834135" duration="147000" />
-      <workItem from="1731173029368" duration="3289000" />
+      <workItem from="1731173029368" duration="6813000" />
     </task>
     <servers />
   </component>
