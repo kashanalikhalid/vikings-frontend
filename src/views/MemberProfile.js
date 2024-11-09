@@ -39,12 +39,27 @@ const MemberProfile=({match,history})=> {
     const [rfid, setRfid] = useState(null);
     const[gender,setGender] = useState(null);
     const[months,setMonths] = useState(null);
-    const[group,setGroup] = useState(null);
-    const[discount,setDiscount] = useState(null);
+    const[group,setGroup] = useState(1);
+    const[discount,setDiscount] = useState(0);
     const[discountAmount,setDiscountAmount] = useState(0)
     const[training,setTraining]=useState(null)
     const[trainingFee,setTrainingFee]=useState(null)
+    const[first, setFirst] = useState(true)
 
+
+    useEffect(()=>{
+        if (first){
+            setFirst(false)
+        }
+        else{
+        if (error){
+            alert("Member not updated")
+        }
+        if (member) {
+            alert("member updated")
+        }
+    }
+    },[error,member])
 
     const [show, setShow] = useState(false);
 
@@ -60,6 +75,7 @@ const MemberProfile=({match,history})=> {
     }
 
     useEffect(()=>{
+        console.log("check check")
         dispatch(getMember(match.params.id))
     },[dispatch,updatedMember])
 
@@ -72,7 +88,6 @@ const MemberProfile=({match,history})=> {
             ,discount
             ,training:training===null?member.training:training
         }
-        console.log(discount)
 
         const rfidData={
             rfid
@@ -87,7 +102,6 @@ const MemberProfile=({match,history})=> {
             fee:fee===null?member.fee:fee,
             date:`${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`
         }
-        console.log(data)
         dispatch(printReceipt(data));
         history.push('/receipt')
     }
@@ -126,33 +140,21 @@ const MemberProfile=({match,history})=> {
             setTrainingFee(trainingFee===null?member.trainingFee:trainingFee)
             if ((gender||member.gender) === "male") {
                 if ((membership||member.membership) === 'Weight Training') {
-                    amount = 1000
+                    amount = 1500
                 }
                 else if((membership||member.membership)==='Cardio')
                 {
                     amount=1500
                 }else {
 
-                    amount = 2000
+                    amount = 3000
                 }
                 trainingcost = 6000
             } else {
-                amount = 2000
+                amount = 2500
                 trainingcost = 3000
             }
-            if ((months||member.months) === 3) {
-                discount = discount + 10
-                amount = amount * 3
-            } else if ((months||member.months) === 6) {
-                discount = discount + 15
-                amount = amount * 6
-            }
-
-            if ((group||member.group) === 4) {
-                discount = discount + 10
-            } else if ((group||member.group) === 6) {
-                discount = discount + 15
-            }
+            
             if ((training||member.training) === true) {
                 amount = amount + parseInt(trainingFee);
             }
@@ -173,19 +175,19 @@ const MemberProfile=({match,history})=> {
             } else {
                 amount = 2000
             }
-            if (months === 3) {
-                discount = discount + 10
-                amount = amount * 3
-            } else if (months === 6) {
-                discount = discount + 15
-                amount = amount * 6
-            }
+            // if (months === 3) {
+            //     discount = discount + 10
+            //     amount = amount * 3
+            // } else if (months === 6) {
+            //     discount = discount + 15
+            //     amount = amount * 6
+            // }
 
-            if (group === 4) {
-                discount = discount + 10
-            } else if (member.group === 6) {
-                discount = discount + 15
-            }
+            // if (group === 4) {
+            //     discount = discount + 10
+            // } else if (member.group === 6) {
+            //     discount = discount + 15
+            // }
             if (training === true) {
                 amount = amount + parseInt(trainingFee);
             }
@@ -331,7 +333,7 @@ const MemberProfile=({match,history})=> {
                                             </Row>
 
                                             <Row>
-                                                <Col className="pr-1" md="3">
+                                                {/* <Col className="pr-1" md="3">
                                                     <Form.Group>
                                                         <label>Discount %</label>
                                                         <Form.Control
@@ -358,10 +360,10 @@ const MemberProfile=({match,history})=> {
                                                         >
                                                         </Form.Control>
                                                     </Form.Group>
-                                                </Col>
+                                                </Col> */}
 
 
-                                                <Col className="pr-1" md="3">
+                                                <Col className="pr-1" md="4">
                                                     <Form.Group>
                                                         <label>Fee Date</label>
                                                         <Form.Control
@@ -373,7 +375,7 @@ const MemberProfile=({match,history})=> {
                                                     </Form.Group>
                                                 </Col>
 
-                                                <Col className="pr-1" md="1">
+                                                <Col className="pr-1" md="4">
                                                     <Form.Group>
                                                         <label>Fee Amount</label>
                                                         <Form.Control
@@ -386,7 +388,7 @@ const MemberProfile=({match,history})=> {
                                                     </Form.Group>
                                                 </Col>
 
-                                                <Col className="pr-1" md="2">
+                                                <Col className="pr-1" md="4">
                                                     <Form.Group>
                                                         <label>Training Fee</label>
                                                         <Form.Control
@@ -415,7 +417,7 @@ const MemberProfile=({match,history})=> {
                                                         ></Form.Control>
                                                     </Form.Group>
                                                 </Col>
-                                                <Col className="pl-3" md="1">
+                                                {/* <Col className="pl-3" md="1">
                                                     <Form.Group>
                                                         <label>Group of</label>
                                                     </Form.Group>
@@ -452,9 +454,9 @@ const MemberProfile=({match,history})=> {
                                                         />
                                                     </Row>
 
-                                                </Col>
+                                                </Col> */}
 
-                                                <Col className="pl-3" md="2">
+                                                {/* <Col className="pl-3" md="2">
                                                     <Form.Group>
                                                         <label>Fee for(months)</label>
                                                     </Form.Group>
@@ -494,7 +496,7 @@ const MemberProfile=({match,history})=> {
                                                         />
                                                     </Row>
 
-                                                </Col>
+                                                </Col> */}
 
 
                                                 <Col className="pl-3" md="1">

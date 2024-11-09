@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {addMember,printReceipt} from '../actions/memberActions.js'
 
@@ -40,6 +40,8 @@ const AddMember=({match,history})=> {
     const[discountAmount,setDiscountAmount] = useState(0)
     const[training,setTraining]=useState(false)
     const[trainingFee,setTrainingFee]=useState(0)
+    const [admission, setAdmission] = useState(false)
+
 
 
     const [show, setShow] = useState(false);
@@ -47,6 +49,7 @@ const AddMember=({match,history})=> {
 
 
     const handleClose = () => setShow(false);
+
 
 
     const handleRFID=()=>{
@@ -65,6 +68,14 @@ const AddMember=({match,history})=> {
     }
 
 
+    useEffect(()=>{
+        if (error){
+            alert("Member not added")
+        }
+        if (member) {
+            alert("member added")
+        }
+    },[error,member])
 
     const onSubmitHandler= (e)=>{
         e.preventDefault();
@@ -83,20 +94,22 @@ const AddMember=({match,history})=> {
         value=value.target.value
         if(value.toString().length<=len)
         {
-            if(len===13)
-                setCnic(value);
-            else if(len===11)
-                setContact(value)
+            setCnic(value);
+            setContact(value)
+            setRfid(value)
         }
     }
     const showAlert=()=>{
         if(error) {
-            if(alertBox)
-                return (
-                    <Alert variant="danger" onClose={() => setAlertBox(false)} dismissible>
-                        <Alert.Heading>Member not added!</Alert.Heading>
-                    </Alert>
-                )
+            // if(alertBox)
+            //     return (
+            //         <Alert variant="danger" onClose={() => setAlertBox(false)} dismissible>
+            //             <Alert.Heading>Member not added!</Alert.Heading>
+            //         </Alert>
+            //     )
+            // alert("Member not added")
+        }
+        if (member){
         }
     }
 
@@ -108,18 +121,18 @@ const AddMember=({match,history})=> {
         {
             if(membership==='Weight Training')
             {
-                amount=1000
+                amount= admission? 2000:1500
             }
             else if(membership==='Cardio')
             {
-                amount=1500
+                amount=admission? 2000:1500
             }
             else {
-                amount=2000
+                amount=admission? 3500:3000
             }
         }
         else {
-            amount=2000
+            amount=admission? 3000:2500
         }
         if(months===3)
         {discount=discount+10
@@ -208,7 +221,7 @@ const AddMember=({match,history})=> {
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col className="pr-1" md="6">
+                                        {/* <Col className="pr-1" md="6">
                                             <Form.Group>
                                                 <label>CNIC</label>
                                                 <Form.Control
@@ -219,7 +232,7 @@ const AddMember=({match,history})=> {
                                                     required={true}
                                                 ></Form.Control>
                                             </Form.Group>
-                                        </Col>
+                                        </Col> */}
 
                                         <Col md="6">
                                             <Form.Group controlId="exampleForm.ControlSelect1">
@@ -233,7 +246,6 @@ const AddMember=({match,history})=> {
                                                     }}
                                                 >
                                                     <option>Weight Training</option>
-                                                    <option>Cardio</option>
                                                     <option>Cardio and weight Training</option>
                                                 </Form.Control>
                                             </Form.Group>
@@ -280,7 +292,7 @@ const AddMember=({match,history})=> {
                                     </Row>
 
                                     <Row>
-                                        <Col className="pr-1" md="3">
+                                        {/* <Col className="pr-1" md="3">
                                             <Form.Group>
                                                 <label>Discount %</label>
                                                 <Form.Control
@@ -307,11 +319,11 @@ const AddMember=({match,history})=> {
                                                 >
                                                 </Form.Control>
                                             </Form.Group>
-                                        </Col>
+                                        </Col> */}
 
 
 
-                                        <Col className="pr-1" md="3">
+                                        <Col className="pr-1" md="4">
                                             <Form.Group>
                                                 <label>Fee Date</label>
                                                 <Form.Control
@@ -323,7 +335,7 @@ const AddMember=({match,history})=> {
                                             </Form.Group>
                                         </Col>
 
-                                        <Col className="pr-1" md="1">
+                                        <Col className="pr-1" md="4">
                                             <Form.Group>
                                                 <label>Fee Amount</label>
                                                 <Form.Control
@@ -336,7 +348,7 @@ const AddMember=({match,history})=> {
                                             </Form.Group>
                                         </Col>
 
-                                        <Col className="pr-1" md="2">
+                                        <Col className="pr-1" md="4">
                                             <Form.Group>
                                                 <label>Training Cost</label>
                                                 <Form.Control
@@ -350,7 +362,7 @@ const AddMember=({match,history})=> {
                                     </Row>
 
                                     <Row>
-                                        <Col className="pl-3" md="4">
+                                        {/* <Col className="pl-3" md="4">
                                             <Form.Group>
                                                 <label>RFID</label>
                                                 <Form.Control
@@ -362,9 +374,9 @@ const AddMember=({match,history})=> {
                                                     onBlur={handleRFID}
                                                 ></Form.Control>
                                             </Form.Group>
-                                        </Col>
+                                        </Col> */}
 
-                                        <Col className="pl-3" md="1">
+                                        {/* <Col className="pl-3" md="1">
                                             <Form.Group>
                                                 <label>Group of</label>
                                             </Form.Group>
@@ -399,9 +411,9 @@ const AddMember=({match,history})=> {
                                                  />
                                              </Row>
 
-                                        </Col>
+                                        </Col> */}
 
-                                        <Col className="pl-3" md="2">
+                                        {/* <Col className="pl-3" md="2">
                                             <Form.Group>
                                                 <label>Fee for(months)</label>
                                             </Form.Group>
@@ -439,7 +451,7 @@ const AddMember=({match,history})=> {
                                                 />
                                             </Row>
 
-                                        </Col>
+                                        </Col> */}
 
 
                                         <Col className="pl-3" md="1">
@@ -448,6 +460,7 @@ const AddMember=({match,history})=> {
                                             </Form.Group>
                                             <Row className="flex-column">
                                                 <Form.Check
+                                                    style={{scale:"1.2", marginBottom:"5px"}}
                                                     inline
                                                     label="M"
                                                     type='radio'
@@ -459,6 +472,7 @@ const AddMember=({match,history})=> {
                                                     required
                                                 />
                                                 <Form.Check
+                                                    style={{scale:"1.2"}}
                                                     inline
                                                     label="F"
                                                     type='radio'
@@ -478,9 +492,25 @@ const AddMember=({match,history})=> {
                                             </Form.Group>
                                             <Row className="flex-column">
                                                 <Form.Check
+                                                    style={{scale:"1.2"}}
                                                     type='checkbox'
                                                     className="data-radio"
                                                     onChange={(e)=>{e.target.checked===true? setTraining(true):setTraining(false)}}
+                                                />
+                                            </Row>
+
+                                        </Col>
+
+                                        <Col className="pl-3" md="1">
+                                            <Form.Group>
+                                                <label>Admission</label>
+                                            </Form.Group>
+                                            <Row className="flex-column">
+                                                <Form.Check
+                                                    style={{scale:"1.2"}}
+                                                    type='checkbox'
+                                                    className="data-radio"
+                                                    onChange={(e)=>{e.target.checked===true? setAdmission(true):setAdmission(false)}}
                                                 />
                                             </Row>
 

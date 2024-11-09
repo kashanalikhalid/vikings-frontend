@@ -20,6 +20,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {countMember} from "../actions/memberActions";
 import {deleteMember,allMembers} from "../actions/memberActions.js";
 import SimpleLoader from '../components/Loaders/SimpleLoader'
+import { getMonth, getYear, format } from "date-fns";
+import axios from "axios";
 
 function Dashboard() {
 
@@ -29,12 +31,31 @@ function Dashboard() {
   const [revenue,setRevenue]=useState(0)
   const [paid,setPaid]=useState(0)
   const [notPaid,setNotPaid]=useState(0)
+  const [revenueMonth, setRevenueMonth] = useState(format(new Date(), "yyyy-MM"))
+  const [password, setPassword] = useState('')
+  const [show, setShow] = useState(false)
 
 
   useEffect(()=>{
     dispatch(countMember())
     dispatch(allMembers())
   },[dispatch])
+
+  const getRev = async () => {
+    console.log("getrev fire")
+    const res = await axios.get(`https://vikings-0.herokuapp.com/admin/feemonthly?date=${revenueMonth}`)
+    if (res.status !== 200){
+      setRevenue(0)
+      return
+    }
+    setRevenue(res.data.rev)
+    
+
+  }
+
+  useEffect(()=> {
+    getRev()
+  },[revenueMonth])
 
   const feeStatus=(date)=>{
     date= new Date(date)
@@ -110,6 +131,31 @@ function Dashboard() {
 
     }
     return Math.floor((notPaid/count)*100)
+  }
+
+  // const calculateMonthly = () => {
+  //   console.log("Calculating")
+  //   let total = 0
+    
+  //   if (members){
+  //     {
+  //       members.forEach((member)=>{
+  //         if (getMonth(new Date(member.feeDate))==getMonth(new Date(revenueMonth)) && getYear(new Date(member.feeDate)) == getYear(new Date(revenueMonth))){
+  //           let fee=member.fee/member.months
+  //               total=total+fee;
+  //         }
+  
+  //       })
+  
+  //     }
+  //     return total;
+  //   }
+  // }
+
+  const verifyPassword = () => {
+    if (password === "nelly123"){
+      setShow(true)
+    }
   }
 
   const showDashboad=()=>{
@@ -239,8 +285,9 @@ function Dashboard() {
 
             </Card>
           </Col>
+          
         </Row>
-        <Row>
+        {/* <Row>
           <Col md="4">
             <Card>
               <Card.Header>
@@ -263,6 +310,47 @@ function Dashboard() {
                   <i className="fas fa-circle text-info"></i>
                   Paid <i className="fas fa-circle text-danger"></i>
                   Not-Paid
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row> */}
+        <Row>
+          <Col md="6">
+            <Card>
+              <Card.Header>
+                <Card.Title as="h4">Monthly Revenue</Card.Title>
+              </Card.Header>
+              <Card.Body>
+                <div
+                    className="ct-chart ct-perfect-fourth"
+                    id="chartPreferences"
+                >
+                 <input placeholder="password" type="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+                 <Form action="">
+                 <Form.Group>
+                      <label>Select Month</label>
+                      <Form.Control
+                          type="month"
+                          value={revenueMonth}
+                          onChange={(e)=>{setRevenueMonth(e.target.value)}}
+                          // value={registrationDate===null? getFormattedDate(member.registrationDate):registrationDate}
+                          // onChange={(e)=>{setRegistrationDate(e.target.value)}}
+                          // required={true}
+                          // disabled={true}
+                      ></Form.Control>
+                  </Form.Group>
+                  </Form>
+                  <div>
+                    <Button
+                    onClick={()=> verifyPassword()}
+                    >View
+                    </Button>
+                  </div>
+                </div>
+                <div className="legend">
+                 Revenue:
+                 {show && revenue}
                 </div>
               </Card.Body>
             </Card>

@@ -52,6 +52,7 @@ export const addMember=(Member,Rfid)=>{
                     'Content-Type': 'application/json'
                 }
             })
+            
 
             const {rfid}= await axios.post('https://vikings-0.herokuapp.com/admin/data/addrfid',Rfid,{
                 headers:{
@@ -337,7 +338,6 @@ export const updateMember=(id,member,Rfid,updateRfid)=>{
             dispatch({
                 type:UPDATE_MEMBER_REQUEST
             })
-            console.log("hi")
 
             const {data}=await axios.patch(`https://vikings-0.herokuapp.com/admin/updatemember/${id}`,member,{
                 headers:{
