@@ -503,7 +503,7 @@ const AddMember=({match,history})=> {
 
                                         <Col className="pl-3" md="1">
                                             <Form.Group>
-                                                <label>Admission</label>
+                                                <label>Admission fee</label>
                                             </Form.Group>
                                             <Row className="flex-column">
                                                 <Form.Check
