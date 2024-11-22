@@ -179,17 +179,17 @@ const MemberProfile=({match,history})=> {
         else{
             if (gender === 'male') {
                 if ((membership||member.membership) === 'Weight Training') {
-                    amount = 1000
+                    amount = 1500
                 }
                 else if((membership||member.membership)==='Cardio')
                 {
                     amount=1500
                 }else {
 
-                    amount = 2000
+                    amount = 3000
                 }
             } else {
-                amount = 2000
+                amount = 2500
             }
             // if (months === 3) {
             //     discount = discount + 10

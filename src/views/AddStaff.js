@@ -33,6 +33,8 @@ const User=({match})=> {
     const [rfid, setRfid] = useState('');
     const [show, setShow] = useState(false);
     const [alertBox,setAlertBox] = useState(true)
+    const [password, setPassword] = useState('')
+    const [showContent, setShowContent] = useState(false)
 
 
     const handleClose = () => setShow(false);
@@ -81,6 +83,12 @@ const User=({match})=> {
         }
     }
 
+    const verifyPassword = () => {
+        if (password === "nelly123"){
+          setShowContent(true)
+        }
+    }
+
 
     return (
         <>
@@ -102,7 +110,12 @@ const User=({match})=> {
                         ></Form.Control>
                     </Modal.Footer>
                 </Modal>
-
+                <input placeholder="password" type="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+                <Button
+                    onClick={()=> verifyPassword()}
+                    >View
+                </Button>
+                {showContent && 
                 <Row>
                     <Col >
                         <Card>
@@ -216,6 +229,7 @@ const User=({match})=> {
                         </Card>
                     </Col>
                 </Row>
+                }
             </Container>
         </>
     );
